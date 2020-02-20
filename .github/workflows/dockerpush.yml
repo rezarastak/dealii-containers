@@ -5,6 +5,8 @@ on:
     # Publish `master` as Docker `latest` image.
     branches:
       - master
+  schedule:
+    - cron: '5 2 * * 0'
 
 jobs:
 
@@ -22,6 +24,7 @@ jobs:
         run: docker build ${{ matrix.directory }} --tag "rrastak/dealii:${{ matrix.directory }}"
 
       - name: Log into registry
+        if: success()
         run: echo "${{ secrets.docker_pass }}" | docker login -u rrastak --password-stdin
 
       - name: Push image
