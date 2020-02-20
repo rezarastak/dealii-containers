@@ -17,7 +17,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Build image
-        run: docker build ubuntu-package --tag "dealii:ubuntu-package"
+        run: docker build ubuntu-package --tag "rrastak/dealii:ubuntu-package"
 
       - name: Log into registry
         run: echo "${{ secrets.docker_pass }}" | docker login -u rrastak --password-stdin
