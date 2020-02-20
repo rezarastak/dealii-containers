@@ -1,0 +1,29 @@
+name: Docker
+
+on:
+  push:
+    # Publish `master` as Docker `latest` image.
+    branches:
+      - master
+
+env:
+  IMAGE_NAME: dealii
+
+jobs:
+
+  # Push image to GitHub Package Registry.
+  ubuntu-package:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Build image
+        run: docker build . --tag "dealii:ubuntu-package"
+
+      - name: Log into registry
+        run: docker login -u rrastak -p "${{ secrets.docker_pass }}"
+
+      - name: Push image
+        run: docker push "dealii:ubuntu-package"
