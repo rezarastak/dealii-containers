@@ -8,19 +8,21 @@ on:
 
 jobs:
 
-  # Push image to GitHub Package Registry.
-  ubuntu-package:
+  build-and-push:
 
     runs-on: ubuntu-latest
+    strategy:
+        matrix:
+            directory: ["ubuntu-package", "master-bare-gcc", "master-bare-clang"]
 
     steps:
       - uses: actions/checkout@v2
 
       - name: Build image
-        run: docker build ubuntu-package --tag "rrastak/dealii:ubuntu-package"
+        run: docker build ${{ matrix.directory }} --tag "rrastak/dealii:${{ matrix.directory }}"
 
       - name: Log into registry
         run: echo "${{ secrets.docker_pass }}" | docker login -u rrastak --password-stdin
 
       - name: Push image
-        run: docker push "rrastak/dealii:ubuntu-package"
+        run: docker push "rrastak/dealii:${{ matrix.directory }}"
