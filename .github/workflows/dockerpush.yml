@@ -20,7 +20,7 @@ jobs:
         run: docker build ubuntu-package --tag "dealii:ubuntu-package"
 
       - name: Log into registry
-        run: docker login -u rrastak -p "${{ secrets.docker_pass }}"
+        run: echo "${{ secrets.docker_pass }}" | docker login -u rrastak --password-stdin
 
       - name: Push image
-        run: docker push "dealii:ubuntu-package"
+        run: docker push "rrastak/dealii:ubuntu-package"
