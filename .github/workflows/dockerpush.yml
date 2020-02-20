@@ -6,9 +6,6 @@ on:
     branches:
       - master
 
-env:
-  IMAGE_NAME: dealii
-
 jobs:
 
   # Push image to GitHub Package Registry.
@@ -20,7 +17,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Build image
-        run: docker build . --tag "dealii:ubuntu-package"
+        run: docker build ubuntu-package --tag "dealii:ubuntu-package"
 
       - name: Log into registry
         run: docker login -u rrastak -p "${{ secrets.docker_pass }}"
