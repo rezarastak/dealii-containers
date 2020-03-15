@@ -1,5 +1,5 @@
 FROM gcc:9.2
-MAINTAINER reza.rastak@gmail.com
+LABEL maintainer="reza.rastak@gmail.com"
 RUN apt-get update -q && apt-get install -q -y cmake ninja-build && \
     git clone https://github.com/dealii/dealii.git dealii-src -b master --depth 1 -q && \
     mkdir dealii-src/build && cd dealii-src/build && \

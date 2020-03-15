@@ -1,5 +1,5 @@
 FROM teeks99/clang-ubuntu:9
-MAINTAINER reza.rastak@gmail.com
+LABEL maintainer="reza.rastak@gmail.com"
 ENV DEAL_II_DIR=/dealii CC=clang-9 CXX=clang++-9
 RUN apt-get update -q && apt-get install -y -q git cmake ninja-build && \
     git clone https://github.com/dealii/dealii.git dealii-src -b master --depth 1 -q && \
