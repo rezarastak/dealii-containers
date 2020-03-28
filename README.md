@@ -13,9 +13,9 @@ Three different images are provided here:
  * **master-bare-gcc**: is compiled from source using `gcc` with no dependency to external libraries.
  * **master-bare-clang**: is compiled from source using `clang` with no dependency to external libraries.
 
- | Image | Layers |
- |---|---|
- |`rrastak/dealii:ubuntu-package` | [![](https://images.microbadger.com/badges/image/rrastak/dealii:ubuntu-package.svg)](https://microbadger.com/images/rrastak/dealii:ubuntu-package "Get your own image badge on microbadger.com") |
- |`rrastak/dealii:master-bare-gcc` | [![](https://images.microbadger.com/badges/image/rrastak/dealii:master-bare-gcc.svg)](https://microbadger.com/images/rrastak/dealii:master-bare-gcc "Get your own image badge on microbadger.com") |
- |`rrastak/dealii:master-bare-clang`  | [![](https://images.microbadger.com/badges/image/rrastak/dealii:master-bare-clang.svg)](https://microbadger.com/images/rrastak/dealii:master-bare-clang "Get your own image badge on microbadger.com")|
+ | Image | Layers | Size |
+ |---|---|---|
+ |`rrastak/dealii:ubuntu-package` | ![](https://img.shields.io/microbadger/layers/rrastak/dealii/ubuntu-package)|![](https://img.shields.io/microbadger/image-size/rrastak/dealii/ubuntu-package)|
+ |`rrastak/dealii:master-bare-gcc` | ![](https://img.shields.io/microbadger/layers/rrastak/dealii/master-bare-gcc)|![](https://img.shields.io/microbadger/image-size/rrastak/dealii/master-bare-gcc)|
+ |`rrastak/dealii:master-bare-clang` | ![](https://img.shields.io/microbadger/layers/rrastak/dealii/master-bare-clang)|![](https://img.shields.io/microbadger/image-size/rrastak/dealii/master-bare-clang)|
 
