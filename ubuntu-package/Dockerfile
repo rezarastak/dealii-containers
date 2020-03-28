@@ -6,3 +6,5 @@ RUN apt-get update -q && \
     apt-get install -y -q libdeal.ii-dev
 RUN adduser --disabled-password --gecos '' dealii
 USER dealii
+WORKDIR /home/dealii
+ENV USER=dealii
