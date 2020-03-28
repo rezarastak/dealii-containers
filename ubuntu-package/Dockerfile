@@ -5,6 +5,3 @@ RUN apt-get update -q && \
     add-apt-repository ppa:ginggs/deal.ii-backports && apt-get update && \
     apt-get install -y -q libdeal.ii-dev
 RUN adduser --disabled-password --gecos '' dealii
-USER dealii
-WORKDIR /home/dealii
-ENV USER=dealii
