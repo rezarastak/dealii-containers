@@ -4,3 +4,5 @@ RUN apt-get update -q && \
     apt-get install -y -q software-properties-common ssh && \
     add-apt-repository ppa:ginggs/deal.ii-backports && apt-get update && \
     apt-get install -y -q libdeal.ii-dev
+RUN adduser --disabled-password --gecos '' dealii
+USER dealii
