@@ -7,6 +7,6 @@ RUN adduser --disabled-password --gecos '' dealii && \
     mkdir $DEAL_II_SRC/build && cd $DEAL_II_SRC/build && \
     cmake -GNinja -DDEAL_II_COMPONENT_EXAMPLES=OFF -DCMAKE_BUILD_TYPE=DebugRelease \
       -DCMAKE_INSTALL_PREFIX=$DEAL_II_DIR .. && \
-    ninja install -j2 && cp summary.log $DEAL_II_DIR/summary.log && \
+    ninja install -j2 -v && cp summary.log $DEAL_II_DIR/summary.log && \
     cd ../ && rm -rf build tests && \
     chown -R dealii $DEAL_II_SRC
