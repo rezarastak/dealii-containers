@@ -2,7 +2,8 @@ FROM teeks99/clang-ubuntu:9
 LABEL maintainer="reza.rastak@gmail.com"
 ENV DEAL_II_DIR=/dealii DEAL_II_SRC=/home/dealii/dealii-src CC=clang-9 CXX=clang++-9
 RUN adduser --disabled-password --gecos '' dealii && \
-    apt-get update -q && apt-get install -y -q git cmake ninja-build && \
+    apt-get update -q && apt-get upgrade -y -q && \
+    apt-get install -y -q git cmake ninja-build && \
     git clone https://github.com/dealii/dealii.git $DEAL_II_SRC -b master --depth 1 -q && \
     mkdir $DEAL_II_SRC/build && cd $DEAL_II_SRC/build && \
     cmake -GNinja -D DEAL_II_COMPONENT_EXAMPLES=OFF -D CMAKE_BUILD_TYPE=DebugRelease \
