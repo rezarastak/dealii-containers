@@ -6,7 +6,7 @@ RUN adduser --disabled-password --gecos '' dealii && \
     git clone https://github.com/dealii/dealii.git $DEAL_II_SRC -b master --depth 1 -q && \
     mkdir $DEAL_II_SRC/build && cd $DEAL_II_SRC/build && \
     cmake -GNinja -D DEAL_II_COMPONENT_EXAMPLES=OFF -D CMAKE_BUILD_TYPE=DebugRelease \
-      -D DEAL_II_CXX_FLAGS='-std=libc++' -D DEAL_II_LINKER_FLAGS='-std=libc++' \
+      -D DEAL_II_CXX_FLAGS='-stdlib=libc++' -D DEAL_II_LINKER_FLAGS='-stdlib=libc++' \
       -D CMAKE_INSTALL_PREFIX=$DEAL_II_DIR .. && \
     ninja install -j2 -v && cp summary.log $DEAL_II_DIR/summary.log && \
     cd ../ && rm -rf build tests && \
