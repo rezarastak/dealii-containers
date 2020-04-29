@@ -3,7 +3,6 @@ LABEL maintainer="reza.rastak@gmail.com"
 USER root:root
 ENV DEAL_II_DIR=/dealii DEAL_II_SRC=/home/dealii/dealii-src
 RUN apt-get update -q && apt-get upgrade -y -q && \
-    apt-get install -y -q git cmake ninja-build && \
     git clone https://github.com/dealii/dealii.git $DEAL_II_SRC -b master --depth 1 -q && \
     mkdir $DEAL_II_SRC/build && cd $DEAL_II_SRC/build && \
     cmake -GNinja -D DEAL_II_COMPONENT_EXAMPLES=OFF -D CMAKE_BUILD_TYPE=DebugRelease \
