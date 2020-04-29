@@ -1,8 +1,7 @@
-FROM rrastak/dealii:ubuntu-package
+FROM dealii/full-deps:fulldepscandi
 LABEL maintainer="reza.rastak@gmail.com"
 ENV DEAL_II_DIR=/dealii DEAL_II_SRC=/home/dealii/dealii-src
-RUN adduser --disabled-password --gecos '' dealii && \
-    apt-get update -q && apt-get upgrade -y -q && \
+RUN apt-get update -q && apt-get upgrade -y -q && \
     apt-get install -y -q git cmake ninja-build && \
     git clone https://github.com/dealii/dealii.git $DEAL_II_SRC -b master --depth 1 -q && \
     mkdir $DEAL_II_SRC/build && cd $DEAL_II_SRC/build && \
