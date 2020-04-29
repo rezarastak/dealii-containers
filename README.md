@@ -12,6 +12,7 @@ Three different images are provided here:
  * **ubuntu-package**: contains the latest official dealii package `libdeal.ii-dev` for for the latest ubuntu LTS.
  * **master-bare-gcc**: is compiled from source using `gcc` with no dependency to external libraries.
  * **master-bare-clang**: is compiled from source using `clang` with no dependency to external libraries.
+ * **for-dealfem**: The master-branch build with enough dependencies to allow compiling `dealfem`.
 
  | Image | Layers | Size |
  |---|---|---|
