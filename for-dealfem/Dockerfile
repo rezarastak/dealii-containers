@@ -1,5 +1,6 @@
 FROM dealii/full-deps:fulldepscandi
 LABEL maintainer="reza.rastak@gmail.com"
+USER root:root
 ENV DEAL_II_DIR=/dealii DEAL_II_SRC=/home/dealii/dealii-src
 RUN apt-get update -q && apt-get upgrade -y -q && \
     apt-get install -y -q git cmake ninja-build && \
