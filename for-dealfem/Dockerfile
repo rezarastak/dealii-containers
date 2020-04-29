@@ -1,4 +1,4 @@
-FROM gcc:latest
+FROM rrastak/dealii:ubuntu-package
 LABEL maintainer="reza.rastak@gmail.com"
 ENV DEAL_II_DIR=/dealii DEAL_II_SRC=/home/dealii/dealii-src
 RUN adduser --disabled-password --gecos '' dealii && \
