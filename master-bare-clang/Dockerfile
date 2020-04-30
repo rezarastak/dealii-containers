@@ -9,6 +9,6 @@ RUN adduser --disabled-password --gecos '' dealii && \
     cmake -GNinja -D DEAL_II_COMPONENT_EXAMPLES=OFF -D CMAKE_BUILD_TYPE=DebugRelease \
       -D DEAL_II_CXX_FLAGS='-stdlib=libc++' -D DEAL_II_LINKER_FLAGS='-stdlib=libc++' \
       -D CMAKE_INSTALL_PREFIX=$DEAL_II_DIR -D DEAL_II_ALLOW_AUTODETECTION=OFF .. && \
-    ninja install -j2 -v && cp summary.log $DEAL_II_DIR/summary.log && \
+    ninja install -j3 -v && cp summary.log $DEAL_II_DIR/summary.log && \
     cd ../ && rm -rf build tests && \
     chown -R dealii $DEAL_II_SRC
