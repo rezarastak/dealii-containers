@@ -9,7 +9,8 @@ You can pull the docker images from the docker hub [repository](https://hub.dock
 Each container created with these images provides the environment variable `DEAL_II_DIR` which allows any `dealii` code to be compiled using the proper `cmake` configuration.
 
 Three different images are provided here:
- * **ubuntu-package**: contains the latest official dealii package `libdeal.ii-dev` for for the latest ubuntu LTS.
+ * **ubuntu-package**: contains the latest official dealii package `libdeal.ii-dev` for the latest Ubuntu LTS.
+ * **ubuntu-package-18**: contains the latest official dealii package `libdeal.ii-dev` for Ubuntu 18.04 LTS.
  * **master-bare-gcc**: is compiled from source using `gcc` with no dependency to external libraries.
  * **master-bare-clang**: is compiled from source using `clang` with no dependency to external libraries.
  * **for-dealfem**: The master-branch build with enough dependencies to allow compiling `dealfem`.
