@@ -5,10 +5,10 @@ COPY local.cfg $CANDI_SRC
 RUN adduser --disabled-password --gecos '' dealii && \
     apt-get update -q && apt-get upgrade -y -q && \
     TZ="America/Los_Angeles" DEBIAN_FRONTEND="noninteractive" \
-    apt-get install -y -q build-essential lsb-release wget automake autoconf \
-    gfortran openmpi-bin openmpi-common libopenmpi-dev cmake subversion git \
-    libblas-dev liblapack-dev libblas3 liblapack3 libsuitesparse-dev libtool \
-    libboost-all-dev splint tcl tcl-dev environment-modules qt4-dev-tools && \
+      apt-get install -y -q build-essential lsb-release wget automake autoconf \
+      gfortran openmpi-bin openmpi-common libopenmpi-dev cmake subversion git \
+      libblas-dev liblapack-dev libblas3 liblapack3 libsuitesparse-dev libtool \
+      libboost-all-dev splint tcl tcl-dev environment-modules qt4-dev-tools && \
     git clone https://github.com/dealii/candi.git $CANDI_SRC -b master --depth 1 -q && \
     cd $CANDI_SRC && ./candi --prefix=$CANDI_DIR -j 4 && rm -r $CANDI_DIR/tmp
 
