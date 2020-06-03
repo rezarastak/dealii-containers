@@ -1,7 +1,7 @@
 FROM teeks99/clang-ubuntu:9
 LABEL maintainer="reza.rastak@gmail.com"
 ENV CANDI_DIR=/candi CANDI_SRC=/candi-src CC=clang-9 CXX=clang++-9
-COPY local.cfg $CANDI_SRC
+COPY local.cfg $CANDI_DIR/
 RUN adduser --disabled-password --gecos '' dealii && \
     apt-get update -q && apt-get upgrade -y -q && \
     TZ="America/Los_Angeles" DEBIAN_FRONTEND="noninteractive" \
@@ -10,5 +10,6 @@ RUN adduser --disabled-password --gecos '' dealii && \
       libblas-dev liblapack-dev libblas3 liblapack3 libsuitesparse-dev libtool \
       libboost-all-dev splint tcl tcl-dev environment-modules qt4-dev-tools && \
     git clone https://github.com/dealii/candi.git $CANDI_SRC -b master --depth 1 -q && \
-    cd $CANDI_SRC && ./candi --prefix=$CANDI_DIR -j 4 && rm -r $CANDI_DIR/tmp
+    cd $CANDI_SRC && cp $CANDI_DIR/local.cfg . && ./candi.sh --prefix=$CANDI_DIR -j 4 && \
+    rm -r $CANDI_DIR/tmp
 
