@@ -15,7 +15,13 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
         matrix:
-            directory: ["ubuntu-package-18", "ubuntu-package", "master-bare-gcc", "master-bare-clang", "for-dealfem"]
+            directory:
+              - ubuntu-package-18
+              - ubuntu-package
+              - master-bare-gcc
+              - master-bare-clang
+              - for-dealfem
+              - for-dealfem-candi-clang
 
     steps:
       - uses: actions/checkout@v2
