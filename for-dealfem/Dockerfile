@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM gcc:latest
 LABEL maintainer="reza.rastak@gmail.com"
 ENV DEAL_II_DIR=/opt/dealii DEAL_II_SRC=/opt/dealii-src
 RUN apt-get update -q && apt-get upgrade -y -q && \
