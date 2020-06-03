@@ -4,6 +4,7 @@ ENV CANDI_DIR=/candi CANDI_SRC=/candi-src CC=clang-9 CXX=clang++-9
 COPY local.cfg $CANDI_SRC
 RUN adduser --disabled-password --gecos '' dealii && \
     apt-get update -q && apt-get upgrade -y -q && \
+    TZ="America/Los_Angeles" DEBIAN_FRONTEND="noninteractive" \
     apt-get install -y -q build-essential lsb-release wget automake autoconf \
     gfortran openmpi-bin openmpi-common libopenmpi-dev cmake subversion git \
     libblas-dev liblapack-dev libblas3 liblapack3 libsuitesparse-dev libtool \
