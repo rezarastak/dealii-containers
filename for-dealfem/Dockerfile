@@ -1,10 +1,11 @@
-FROM gcc:latest
+FROM ubuntu:latest
 LABEL maintainer="reza.rastak@gmail.com"
 ENV DEAL_II_DIR=/opt/dealii DEAL_II_SRC=/opt/dealii-src
 RUN apt-get update -q && apt-get upgrade -y -q && \
     TZ="America/Los_Angeles" DEBIAN_FRONTEND="noninteractive" \
-      apt-get install -y -q git cmake ninja-build liblapack-dev libmuparser-dev \
-      libp4est-dev trilinos-all-dev && \
+      apt-get install -y -q build-essential git cmake ninja-build \
+      libboost-serialization-dev libboost-thread-dev liblapack-dev \
+      libmuparser-dev libp4est-dev trilinos-all-dev && \
     git clone https://github.com/dealii/dealii.git $DEAL_II_SRC -b master --depth 1 -q && \
     mkdir $DEAL_II_SRC/build && cd $DEAL_II_SRC/build && \
     cmake -GNinja -D DEAL_II_COMPONENT_EXAMPLES=OFF -D CMAKE_BUILD_TYPE=DebugRelease \
