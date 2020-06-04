@@ -1,6 +1,6 @@
-FROM teeks99/clang-ubuntu:9
+FROM ubuntu:latest
 LABEL maintainer="reza.rastak@gmail.com"
-ENV CANDI_DIR=/candi CANDI_SRC=/candi-src CC=clang-9 CXX=clang++-9
+ENV CANDI_DIR=/candi CANDI_SRC=/candi-src
 COPY local.cfg $CANDI_DIR/
 RUN adduser --disabled-password --gecos '' dealii && \
     apt-get update -q && apt-get upgrade -y -q && \
