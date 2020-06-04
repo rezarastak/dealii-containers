@@ -10,6 +10,6 @@ RUN adduser --disabled-password --gecos '' dealii && \
       libblas-dev liblapack-dev libblas3 liblapack3 libsuitesparse-dev libtool \
       libboost-all-dev splint tcl tcl-dev environment-modules && \
     git clone https://github.com/dealii/candi.git $CANDI_SRC -b master --depth 1 -q && \
-    cd $CANDI_SRC && cp $CANDI_DIR/local.cfg . && ./candi.sh --prefix=$CANDI_DIR -j 3 && \
+    cd $CANDI_SRC && cp $CANDI_DIR/local.cfg . && ./candi.sh --prefix=$CANDI_DIR -j 2 && \
     rm -r $CANDI_DIR/tmp
 
