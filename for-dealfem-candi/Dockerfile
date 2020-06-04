@@ -8,7 +8,7 @@ RUN adduser --disabled-password --gecos '' dealii && \
       apt-get install -y -q build-essential lsb-release wget automake autoconf \
       gfortran openmpi-bin openmpi-common libopenmpi-dev cmake subversion git \
       libblas-dev liblapack-dev libblas3 liblapack3 libsuitesparse-dev libtool \
-      libboost-all-dev splint tcl tcl-dev environment-modules qt4-dev-tools && \
+      libboost-all-dev splint tcl tcl-dev environment-modules && \
     git clone https://github.com/dealii/candi.git $CANDI_SRC -b master --depth 1 -q && \
     cd $CANDI_SRC && cp $CANDI_DIR/local.cfg . && ./candi.sh --prefix=$CANDI_DIR -j 4 && \
     rm -r $CANDI_DIR/tmp
