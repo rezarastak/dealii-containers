@@ -6,7 +6,7 @@ RUN adduser --disabled-password --gecos '' dealii && \
     apt-get update -q && apt-get upgrade -y -q && \
     TZ="America/Los_Angeles" DEBIAN_FRONTEND="noninteractive" \
       apt-get install -y -q build-essential lsb-release wget automake autoconf \
-      gfortran openmpi-bin openmpi-common libopenmpi-dev cmake subversion git \
+      gfortran python openmpi-bin openmpi-common libopenmpi-dev cmake subversion git \
       libblas-dev liblapack-dev libblas3 liblapack3 libsuitesparse-dev libtool \
       libboost-all-dev splint tcl tcl-dev environment-modules && \
     git clone https://github.com/dealii/candi.git $CANDI_SRC -b master --depth 1 -q && \
