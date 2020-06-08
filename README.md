@@ -16,11 +16,11 @@ Three different images are provided here:
  * **for-dealfem**: The master-branch built with enough dependencies to allow compiling `dealfem`. Specifically, it is built with flags `DEAL_II_WITH_MPI=ON DEAL_II_WITH_TRILINOS=ON DEAL_II_WITH_P4EST=ON DEAL_II_WITH_MUPARSER=ON`.
  * **for-dealfem-candi**: Same as *for-dealfem* but built from the [candi](https://github.com/dealii/candi) scripts.
 
- | Image | Layers | Size |
- |---|---|---|
- |`rrastak/dealii:ubuntu-package` | ![](https://img.shields.io/microbadger/layers/rrastak/dealii/ubuntu-package)|![](https://img.shields.io/microbadger/image-size/rrastak/dealii/ubuntu-package)|
- |`rrastak/dealii:master-bare-gcc` | ![](https://img.shields.io/microbadger/layers/rrastak/dealii/master-bare-gcc)|![](https://img.shields.io/microbadger/image-size/rrastak/dealii/master-bare-gcc)|
- |`rrastak/dealii:master-bare-clang` | ![](https://img.shields.io/microbadger/layers/rrastak/dealii/master-bare-clang)|![](https://img.shields.io/microbadger/image-size/rrastak/dealii/master-bare-clang)|
- |`rrastak/dealii:for-dealfem` | ![](https://img.shields.io/microbadger/layers/rrastak/dealii/for-dealfem)|![](https://img.shields.io/microbadger/image-size/rrastak/dealii/for-dealfem)|
- |`rrastak/dealii:for-dealfem-candi` | ![](https://img.shields.io/microbadger/layers/rrastak/dealii/for-dealfem-candi)|![](https://img.shields.io/microbadger/image-size/rrastak/dealii/for-dealfem-candi)|
+ | Image | Size |
+ |---|---|
+ |`rrastak/dealii:ubuntu-package`    | ![](https://img.shields.io/docker/image-size/rrastak/dealii/ubuntu-package)|
+ |`rrastak/dealii:master-bare-gcc`   | ![](https://img.shields.io/docker/image-size/rrastak/dealii/master-bare-gcc)|
+ |`rrastak/dealii:master-bare-clang` | ![](https://img.shields.io/docker/image-size/rrastak/dealii/master-bare-clang)|
+ |`rrastak/dealii:for-dealfem`       | ![](https://img.shields.io/docker/image-size/rrastak/dealii/for-dealfem)|
+ |`rrastak/dealii:for-dealfem-candi` | ![](https://img.shields.io/docker/image-size/rrastak/dealii/for-dealfem-candi)|
 
