@@ -1,7 +1,8 @@
 FROM ubuntu:latest
 LABEL maintainer="reza.rastak@gmail.com"
 ENV DEAL_II_DIR=/opt/dealii DEAL_II_SRC=/opt/dealii-src
-RUN apt-get update -q && apt-get upgrade -y -q && \
+RUN adduser --disabled-password --gecos '' dealii && \
+    apt-get update -q && apt-get upgrade -y -q && \
     TZ="America/Los_Angeles" DEBIAN_FRONTEND="noninteractive" \
       apt-get install -y -q build-essential git cmake ninja-build \
       libarpack2-dev libassimp-dev libboost-iostreams-dev libboost-serialization-dev \
