@@ -1,4 +1,4 @@
-FROM ubuntu:19.10
+FROM ubuntu:latest
 LABEL maintainer="reza.rastak@gmail.com"
 ENV CANDI_DIR=/candi CANDI_SRC=/candi-src
 COPY local.cfg $CANDI_DIR/
