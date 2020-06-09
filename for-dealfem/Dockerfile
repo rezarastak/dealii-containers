@@ -5,7 +5,7 @@ RUN adduser --disabled-password --gecos '' dealii && \
     apt-get update -q && apt-get upgrade -y -q && \
     TZ="America/Los_Angeles" DEBIAN_FRONTEND="noninteractive" \
       apt-get install -y -q build-essential git cmake ninja-build python numdiff \
-      libarpack2-dev libassimp-dev libboost-iostreams-dev libboost-serialization-dev \
+      libarpack2-dev libboost-iostreams-dev libboost-serialization-dev \
       libboost-system-dev libboost-thread-dev libbz2-dev libdeal.ii-9.1.1 libgmsh-dev \
       libgsl-dev libhdf5-dev libhdf5-mpi-dev liblapack-dev libmuparser-dev \
       libnetcdf-cxx-legacy-dev libnetcdf-dev libp4est-dev \
