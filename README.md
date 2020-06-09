@@ -19,6 +19,7 @@ Three different images are provided here:
  | Image | Size |
  |---|---|
  |`rrastak/dealii:ubuntu-package`    | ![](https://img.shields.io/docker/image-size/rrastak/dealii/ubuntu-package)|
+ |`rrastak/dealii:ubuntu-package-18`    | ![](https://img.shields.io/docker/image-size/rrastak/dealii/ubuntu-package-18)|
  |`rrastak/dealii:master-bare-gcc`   | ![](https://img.shields.io/docker/image-size/rrastak/dealii/master-bare-gcc)|
  |`rrastak/dealii:master-bare-clang` | ![](https://img.shields.io/docker/image-size/rrastak/dealii/master-bare-clang)|
  |`rrastak/dealii:for-dealfem`       | ![](https://img.shields.io/docker/image-size/rrastak/dealii/for-dealfem)|
