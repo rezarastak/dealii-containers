@@ -11,5 +11,5 @@ RUN adduser --disabled-password --gecos '' dealii && \
       libtool libboost-all-dev splint tcl tcl-dev environment-modules && \
     git clone https://github.com/dealii/candi.git $CANDI_SRC -b master --depth 1 -q && \
     cd $CANDI_SRC && cp $CANDI_DIR/local.cfg . && ./candi.sh --prefix=$CANDI_DIR -j 2 && \
-    rm -r $CANDI_DIR/tmp && source $CANDI_DIR/configuration/enable.sh
+    rm -r $CANDI_DIR/tmp && . $CANDI_DIR/configuration/enable.sh
 
