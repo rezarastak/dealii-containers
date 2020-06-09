@@ -10,7 +10,7 @@ RUN adduser --disabled-password --gecos '' dealii && \
       libgsl-dev libhdf5-dev libhdf5-mpi-dev liblapack-dev libmuparser-dev \
       libnetcdf-cxx-legacy-dev libnetcdf-dev libp4est-dev \
       libscalapack-mpi-dev libsuitesparse-dev libsundials-dev libtbb-dev mpi-default-dev \
-      petsc-dev slepc-dev trilinos-all-dev zlib1g-dev && \
+      slepc-dev trilinos-all-dev zlib1g-dev && \
     DEAL_II_SRC=/opt/dealii-src && \
     git clone https://github.com/dealii/dealii.git $DEAL_II_SRC -b master --depth 1 -q && \
     mkdir $DEAL_II_SRC/build && cd $DEAL_II_SRC/build && \
