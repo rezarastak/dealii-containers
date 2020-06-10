@@ -1,6 +1,6 @@
 FROM ubuntu:latest
 LABEL maintainer="reza.rastak@gmail.com"
-ENV CANDI_DIR=/candi CANDI_SRC=/candi-src
+ENV CANDI_DIR=/candi CANDI_SRC=/candi-src DEAL_II_DIR=/candi/deal.II-master
 COPY local.cfg $CANDI_DIR/
 RUN adduser --disabled-password --gecos '' dealii && \
     apt-get update -q && apt-get upgrade -y -q && \
@@ -11,5 +11,5 @@ RUN adduser --disabled-password --gecos '' dealii && \
       libtool libboost-all-dev splint tcl tcl-dev environment-modules && \
     git clone https://github.com/dealii/candi.git $CANDI_SRC -b master --depth 1 -q && \
     cd $CANDI_SRC && cp $CANDI_DIR/local.cfg . && ./candi.sh --prefix=$CANDI_DIR -j 2 && \
-    rm -r $CANDI_DIR/tmp && . $CANDI_DIR/configuration/enable.sh
+    rm -r $CANDI_DIR/tmp
 
