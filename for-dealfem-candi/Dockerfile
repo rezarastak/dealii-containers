@@ -33,6 +33,8 @@ RUN apt-get update -q && \
 ENV CANDI_DIR=/candi CANDI_SRC=/candi-src
 COPY local.cfg $CANDI_DIR/
 RUN git clone https://github.com/dealii/candi.git $CANDI_SRC -b master --depth 1 -q && \
-    cd $CANDI_SRC && cp $CANDI_DIR/local.cfg . && ./candi.sh --prefix=$CANDI_DIR -j 2 && \
+    cd $CANDI_SRC && \
+    cp $CANDI_DIR/local.cfg . && \
+    ./candi.sh --prefix=$CANDI_DIR -j 2 && \
     rm -r $CANDI_DIR/tmp
 ENV DEAL_II_DIR=/candi/deal.II-master
