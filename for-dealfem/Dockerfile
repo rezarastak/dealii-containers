@@ -2,7 +2,7 @@ FROM ubuntu:latest
 LABEL maintainer="reza.rastak@gmail.com"
 ENV DEAL_II_DIR=/opt/dealii
 RUN adduser --disabled-password --gecos '' dealii && \
-    apt-get update -q && apt-get upgrade -y -q && \
+    apt-get update -q && \
     TZ="America/Los_Angeles" DEBIAN_FRONTEND="noninteractive" \
       apt-get install -y -q build-essential git cmake ninja-build python numdiff \
       libarpack2-dev libboost-iostreams-dev libboost-serialization-dev \

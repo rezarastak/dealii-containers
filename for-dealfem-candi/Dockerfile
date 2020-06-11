@@ -3,7 +3,7 @@ LABEL maintainer="reza.rastak@gmail.com"
 ENV CANDI_DIR=/candi CANDI_SRC=/candi-src DEAL_II_DIR=/candi/deal.II-master
 COPY local.cfg $CANDI_DIR/
 RUN adduser --disabled-password --gecos '' dealii && \
-    apt-get update -q && apt-get upgrade -y -q && \
+    apt-get update -q && \
     TZ="America/Los_Angeles" DEBIAN_FRONTEND="noninteractive" \
       apt-get install -y -q build-essential python bc ninja-build lsb-release wget numdiff \
       automake autoconf gfortran openmpi-bin openmpi-common libopenmpi-dev cmake \
