@@ -49,6 +49,5 @@ RUN DEAL_II_SRC=/opt/dealii-src && \
       -D DEAL_II_WITH_MUPARSER=ON \
       .. && \
     ninja install -j3 -v && \
-    cp summary.log $DEAL_II_DIR/summary.log && \
     cd ../../ && \
     rm -rf $DEAL_II_SRC

@@ -20,6 +20,5 @@ RUN DEAL_II_SRC=/home/dealii/dealii-src && \
       -D DEAL_II_ALLOW_AUTODETECTION=OFF \
       .. && \
     ninja install -j3 -v && \
-    cp summary.log $DEAL_II_DIR/summary.log && \
     cd ../../ && \
     rm -rf $DEAL_II_SRC
