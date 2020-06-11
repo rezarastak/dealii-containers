@@ -1,8 +1,10 @@
 FROM teeks99/clang-ubuntu:11
 LABEL maintainer="reza.rastak@gmail.com"
 RUN adduser --disabled-password --gecos '' dealii
-RUN apt-get update -q && \
-    apt-get install -y -q git cmake ninja-build
+RUN apt-get update -q && apt-get install -y -q \
+      git \
+      cmake \
+      ninja-build
 ENV DEAL_II_DIR=/dealii CC=clang-11 CXX=clang++-11
 RUN DEAL_II_SRC=/home/dealii/dealii-src && \
     git clone https://github.com/dealii/dealii.git $DEAL_II_SRC -b master --depth 1 -q && \
