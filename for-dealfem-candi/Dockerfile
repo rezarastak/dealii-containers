@@ -13,9 +13,7 @@ RUN apt-get update -q && \
       automake \
       autoconf \
       gfortran \
-      openmpi-bin \
-      openmpi-common \
-      libopenmpi-dev \
+      mpi-default-dev \
       cmake \
       subversion \
       git \
