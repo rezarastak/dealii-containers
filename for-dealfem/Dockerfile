@@ -1,7 +1,6 @@
 FROM ubuntu:latest
 LABEL maintainer="reza.rastak@gmail.com"
 RUN adduser --disabled-password --gecos '' dealii
-ENV DEAL_II_DIR=/opt/dealii
 RUN apt-get update -q && \
     TZ="America/Los_Angeles" DEBIAN_FRONTEND="noninteractive" \
       apt-get install -y -q build-essential git cmake ninja-build python numdiff \
@@ -10,8 +9,9 @@ RUN apt-get update -q && \
       libgsl-dev libhdf5-dev libhdf5-mpi-dev liblapack-dev libmuparser-dev \
       libnetcdf-cxx-legacy-dev libnetcdf-dev libp4est-dev \
       libscalapack-mpi-dev libsuitesparse-dev libsundials-dev libtbb-dev mpi-default-dev \
-      slepc-dev trilinos-all-dev zlib1g-dev && \
-    DEAL_II_SRC=/opt/dealii-src && \
+      slepc-dev trilinos-all-dev zlib1g-dev
+ENV DEAL_II_DIR=/opt/dealii
+RUN DEAL_II_SRC=/opt/dealii-src && \
     git clone https://github.com/dealii/dealii.git $DEAL_II_SRC -b master --depth 1 -q && \
     mkdir $DEAL_II_SRC/build && cd $DEAL_II_SRC/build && \
     cmake -GNinja -D DEAL_II_COMPONENT_EXAMPLES=ON -D CMAKE_BUILD_TYPE=DebugRelease \

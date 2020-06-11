@@ -1,10 +1,10 @@
 FROM gcc:latest
 LABEL maintainer="reza.rastak@gmail.com"
 RUN adduser --disabled-password --gecos '' dealii
-ENV DEAL_II_DIR=/dealii
 RUN apt-get update -q && \
-    apt-get install -y -q git cmake ninja-build && \
-    DEAL_II_SRC=/home/dealii/dealii-src && \
+    apt-get install -y -q git cmake ninja-build
+ENV DEAL_II_DIR=/dealii
+RUN DEAL_II_SRC=/home/dealii/dealii-src && \
     git clone https://github.com/dealii/dealii.git $DEAL_II_SRC -b master --depth 1 -q && \
     mkdir $DEAL_II_SRC/build && cd $DEAL_II_SRC/build && \
     cmake -GNinja -D DEAL_II_COMPONENT_EXAMPLES=ON -D CMAKE_BUILD_TYPE=DebugRelease \
