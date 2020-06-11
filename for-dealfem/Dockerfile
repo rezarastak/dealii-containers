@@ -29,7 +29,6 @@ RUN apt-get update -q && \
       libsundials-dev \
       libtbb-dev \
       mpi-default-dev \
-      slepc-dev \
       trilinos-all-dev \
       zlib1g-dev
 ENV DEAL_II_DIR=/opt/dealii
