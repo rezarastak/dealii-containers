@@ -28,8 +28,7 @@ RUN apt-get update -q && \
       libboost-all-dev \
       splint \
       tcl \
-      tcl-dev \
-      environment-modules
+      tcl-dev
 ENV CANDI_DIR=/candi CANDI_SRC=/candi-src
 COPY local.cfg $CANDI_DIR/
 RUN git clone https://github.com/dealii/candi.git $CANDI_SRC -b master --depth 1 -q && \
