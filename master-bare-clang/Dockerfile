@@ -1,6 +1,6 @@
-FROM teeks99/clang-ubuntu:10
+FROM teeks99/clang-ubuntu:11
 LABEL maintainer="reza.rastak@gmail.com"
-ENV DEAL_II_DIR=/dealii CC=clang-10 CXX=clang++-10
+ENV DEAL_II_DIR=/dealii CC=clang-11 CXX=clang++-11
 RUN adduser --disabled-password --gecos '' dealii && \
     apt-get update -q && apt-get upgrade -y -q && \
     apt-get install -y -q git cmake ninja-build && \
