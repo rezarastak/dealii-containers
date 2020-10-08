@@ -1,4 +1,4 @@
-name: Docker
+name: Dealii
 
 on:
   push:
@@ -10,7 +10,7 @@ on:
 
 jobs:
 
-  build-and-push:
+  dealii-build:
 
     runs-on: ubuntu-latest
     strategy:

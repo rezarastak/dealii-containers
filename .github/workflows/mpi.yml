@@ -1,4 +1,4 @@
-name: Docker
+name: MPI
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
 
 jobs:
 
-  mpi-build-and-push:
+  mpi-build:
 
     runs-on: ubuntu-latest
     strategy:
