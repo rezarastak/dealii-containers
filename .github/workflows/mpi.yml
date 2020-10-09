@@ -27,7 +27,7 @@ jobs:
       - name: Build image
         run: |
             docker build mpi-${{ matrix.method }} \
-              --tag "rrastak/mpi:${{ env.package }}-${{ matrix.method }}-${{ env.version }}" \
+              --tag "rrastak/mpi:${{ env.package }}-${{ env.version }}-${{ matrix.method }}" \
               --build-arg MPI_VERSION=${{ env.version }} \
               --build-arg MPI_PACKAGE_LINK=${{ env.link }}
 
@@ -37,4 +37,4 @@ jobs:
         run: echo "${{ secrets.docker_pass }}" | docker login -u rrastak --password-stdin
 
       - name: Push image
-        run: docker push "rrastak/mpi:${{ env.package }}-${{ matrix.method }}-${{ env.version }}"
+        run: docker push "rrastak/mpi:${{ env.package }}-${{ env.version }}-${{ matrix.method }}"
