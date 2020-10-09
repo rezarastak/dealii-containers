@@ -19,7 +19,6 @@ RUN DEAL_II_SRC=/home/dealii/dealii-src && \
       -D CMAKE_INSTALL_PREFIX=$DEAL_II_DIR \
       -D DEAL_II_ALLOW_AUTODETECTION=OFF \
       -D DEAL_II_WITH_MUPARSER=ON \
-      -D DEAL_II_WITH_UMFPACK=ON \
       -D DEAL_II_FORCE_BUNDLED_BOOST=ON \
       .. && \
     ninja install -j3 -v && \
