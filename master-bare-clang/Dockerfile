@@ -14,7 +14,7 @@ RUN DEAL_II_SRC=/home/dealii/dealii-src && \
       -D CMAKE_BUILD_TYPE=DebugRelease \
       -D DEAL_II_CXX_FLAGS='-stdlib=libc++' \
       -D DEAL_II_LINKER_FLAGS='-stdlib=libc++' \
-      -D CMAKE_CXX_STANDARD=17 \
+      -D CMAKE_CXX_STANDARD=20 \
       -D CMAKE_CXX_EXTENSIONS=OFF \
       -D CMAKE_INSTALL_PREFIX=$DEAL_II_DIR \
       -D DEAL_II_ALLOW_AUTODETECTION=OFF \
