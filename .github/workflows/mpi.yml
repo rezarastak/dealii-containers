@@ -17,7 +17,7 @@ jobs:
     strategy:
         matrix:
             include:
-              - method: gcc
+              - method: [gcc, clang]
 
     steps:
       - uses: actions/checkout@v2
