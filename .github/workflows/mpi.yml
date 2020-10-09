@@ -10,12 +10,14 @@ jobs:
   mpi-build:
 
     runs-on: ubuntu-latest
+    env:
+        link: https://download.open-mpi.org/release/open-mpi/v4.0/openmpi-4.0.5.tar.gz
+        version: 4.0.5
+
     strategy:
         matrix:
             include:
               - method: gcc
-                link: https://download.open-mpi.org/release/open-mpi/v4.0/openmpi-4.0.5.tar.gz
-                version: 4.0.5
 
     steps:
       - uses: actions/checkout@v2
@@ -23,9 +25,9 @@ jobs:
       - name: Build image
         run: |
             docker build mpi-${{ matrix.method }} \
-              --tag "rrastak/mpi:${{ matrix.method }}-${{ matrix.version }}" \
-              --build-arg MPI_VERSION=${{ matrix.version }} \
-              --build-arg MPI_PACKAGE_LINK=${{ matrix.link }}
+              --tag "rrastak/mpi-${{ matrix.method }}:${{ env.version }}" \
+              --build-arg MPI_VERSION=${{ env.version }} \
+              --build-arg MPI_PACKAGE_LINK=${{ env.link }}
 
 
       - name: Log into registry
@@ -33,4 +35,4 @@ jobs:
         run: echo "${{ secrets.docker_pass }}" | docker login -u rrastak --password-stdin
 
       - name: Push image
-        run: docker push "rrastak/mpi:${{ matrix.method }}-${{ matrix.version }}"
+        run: docker push "rrastak/mpi-${{ matrix.method }}:${{ env.version }}"
