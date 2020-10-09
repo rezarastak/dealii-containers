@@ -27,11 +27,11 @@ RUN apt-get update -q && \
       splint \
       tcl \
       tcl-dev
-ENV CANDI_DIR=/candi CANDI_SRC=/candi-src
+ENV CANDI_DIR=/opt/candi CANDI_SRC=/opt/candi-src
 COPY local.cfg $CANDI_DIR/
 RUN git clone https://github.com/dealii/candi.git $CANDI_SRC -b master --depth 1 -q && \
     cd $CANDI_SRC && \
     cp $CANDI_DIR/local.cfg . && \
     ./candi.sh --prefix=$CANDI_DIR -j 2 && \
     rm -r $CANDI_DIR/tmp
-ENV DEAL_II_DIR=/candi/deal.II-master
+ENV DEAL_II_DIR=/opt/candi/deal.II-master
