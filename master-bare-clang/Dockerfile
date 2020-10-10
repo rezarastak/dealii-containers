@@ -6,7 +6,7 @@ RUN apt-get update -q && apt-get install -y -q \
       cmake \
       ninja-build
 ENV DEAL_II_DIR=/opt/dealii CC=clang-12 CXX=clang++-12
-# In the cmake command we use DEAL_II_CXX_FLAGS instead of CMAKE_CXX_STANDARD because
+# In the cmake command we use CMAKE_CXX_FLAGS instead of CMAKE_CXX_STANDARD because
 # cmake 3.10 does not support c++20 even though clang can
 RUN DEAL_II_SRC=/home/dealii/dealii-src && \
     git clone https://github.com/dealii/dealii.git $DEAL_II_SRC -b master --depth 1 -q && \
@@ -16,7 +16,7 @@ RUN DEAL_II_SRC=/home/dealii/dealii-src && \
       -D CMAKE_BUILD_TYPE=DebugRelease \
       -D DEAL_II_CXX_FLAGS='-stdlib=libc++' \
       -D DEAL_II_LINKER_FLAGS='-stdlib=libc++' \
-      -D DEAL_II_CXX_FLAGS="--std=c++20" \
+      -D CMAKE_CXX_FLAGS='--std=c++20' \
       -D CMAKE_CXX_EXTENSIONS=OFF \
       -D CMAKE_INSTALL_PREFIX=$DEAL_II_DIR \
       -D DEAL_II_ALLOW_AUTODETECTION=OFF \
