@@ -12,5 +12,5 @@ RUN MPI_TAR_FILE=$MPI_DIR/openmpi-$MPI_VERSION.tar.gz && \
     ./configure --prefix=$MPI_DIR && \
     make all install && \
     rm -r $MPI_SRC $MPI_TAR_FILE
-ENV PATH="${MPI_DIR}/bin:${PATH}" CC=mpicc CXX=mpicxx FC=mpif90 F77=mpi77
+ENV PATH="${MPI_DIR}/bin:${PATH}" CC=mpicc CXX=mpicxx FC=mpif90 F77=mpi77 MPI_BASE_DIR=$MPI_DIR
 
