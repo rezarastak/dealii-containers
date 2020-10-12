@@ -16,6 +16,6 @@ RUN DEAL_II_SRC=/opt/dealii-src && \
       -D DEAL_II_WITH_LAPACK=ON \
       -D DEAL_II_WITH_MUPARSER=ON \
       .. && \
-    make -j10 install && \
+    make -j3 install && \
     cd ../../ && \
     rm -rf $DEAL_II_SRC
