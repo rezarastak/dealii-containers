@@ -1,7 +1,9 @@
 # dealii-containers
 
 [![](https://img.shields.io/docker/pulls/rrastak/dealii?style=plastic "Docker hub")](https://hub.docker.com/r/rrastak/dealii)
-[![Docker](https://github.com/rezarastak/dealii-containers/workflows/Docker/badge.svg)](https://github.com/rezarastak/dealii-containers/actions)
+[![Dealii](https://github.com/rezarastak/dealii-containers/workflows/Dealii/badge.svg)](https://github.com/rezarastak/dealii-containers/actions?query=workflow%3ADealii)
+[![MPI](https://github.com/rezarastak/MPI-containers/workflows/MPI/badge.svg)](https://github.com/rezarastak/MPI-containers/actions?query=workflow%3AMPI)
+[![Trilinos](https://github.com/rezarastak/Trilinos-containers/workflows/Trilinos/badge.svg)](https://github.com/rezarastak/Trilinos-containers/actions?query=workflow%3ATrilinos)
 
 Creates docker containers images to use the dealii library.
 These images are excellent tools for performing CI and CD in codebases.
