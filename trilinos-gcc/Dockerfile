@@ -19,7 +19,12 @@ RUN TRILINOS_TAR_NAME=$(basename $TRILINOS_PACKAGE_LINK) && \
     cmake \
       -D TPL_ENABLE_MPI=ON \
       -D MPI_BASE_DIR=$MPI_DIR \
-      -D Trilinos_ENABLE_Tpetra=ON \
+      -D Trilinos_ENABLE_AztecOO=ON \
+      -D Trilinos_ENABLE_Epetra=ON \
+      -D Trilinos_ENABLE_Ifpack=ON \
+      -D Trilinos_ENABLE_ML=ON \
+      -D Trilinos_ENABLE_Teuchos=ON \
+      -D BUILD_SHARED_LIBS=ON \
       -D CMAKE_CXX_STANDARD=20 \
       -D CMAKE_CXX_EXTENSIONS=OFF \
       -D CMAKE_INSTALL_PREFIX=$TRILINOS_DIR \
