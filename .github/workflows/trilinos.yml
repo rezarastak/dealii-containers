@@ -7,7 +7,7 @@ on:
 
 jobs:
 
-  mpi-build:
+  trilinos-build:
 
     runs-on: ubuntu-latest
     env:
