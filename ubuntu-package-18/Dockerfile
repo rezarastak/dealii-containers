@@ -1,6 +1,5 @@
 FROM ubuntu:18.04
 LABEL maintainer="reza.rastak@gmail.com"
-RUN adduser --disabled-password --gecos '' dealii
 RUN apt-get update -q && apt-get install -y -q \
       software-properties-common \
       ssh \
