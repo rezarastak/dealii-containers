@@ -2,7 +2,7 @@ FROM gcc:latest
 LABEL maintainer="reza.rastak@gmail.com"
 ARG MPI_PACKAGE_LINK
 ARG MPI_VERSION
-ENV MPI_DIR=/openmpi
+ENV MPI_DIR=/opt/openmpi
 RUN MPI_TAR_FILE=$MPI_DIR/openmpi-$MPI_VERSION.tar.gz && \
     MPI_SRC=$MPI_DIR/openmpi-$MPI_VERSION && \
     mkdir $MPI_DIR && \
