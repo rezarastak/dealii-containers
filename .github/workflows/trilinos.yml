@@ -1,0 +1,37 @@
+name: Trilinos
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+
+  mpi-build:
+
+    runs-on: ubuntu-latest
+    env:
+        link: https://github.com/trilinos/Trilinos/archive/trilinos-release-13-0-0.tar.gz
+        version: 13.0.0
+
+    strategy:
+        matrix:
+            method:
+                - gcc
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Build image
+        run: |
+            docker build trilinos-${{ matrix.method }} \
+              --tag "rrastak/trilinos:${{ env.version }}-${{ matrix.method }}" \
+              --build-arg TRILINOS_PACKAGE_LINK=${{ env.link }}
+
+
+      - name: Log into registry
+        if: success()
+        run: echo "${{ secrets.docker_pass }}" | docker login -u rrastak --password-stdin
+
+      - name: Push image
+        run: docker push "rrastak/trilinos:${{ env.version }}-${{ matrix.method }}"
