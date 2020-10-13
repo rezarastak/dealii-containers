@@ -28,6 +28,7 @@ RUN apt-get update -q && \
       tcl-dev
 ENV CANDI_DIR=/opt/candi CANDI_SRC=/opt/candi-src
 COPY local.cfg $CANDI_DIR/
+ARG DEAL_II_BUILD_TYPE=DebugRelease
 RUN git clone https://github.com/dealii/candi.git $CANDI_SRC -b master --depth 1 -q && \
     cd $CANDI_SRC && \
     cp $CANDI_DIR/local.cfg . && \
