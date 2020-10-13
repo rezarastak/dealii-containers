@@ -10,7 +10,7 @@ RUN mkdir $P4EST_DIR && \
     P4EST_SRC=$P4EST_DIR/${P4EST_TAR_FILE_NAME%.tar.gz} && \
     cd $P4EST_SRC && \
     ./configure F77=mpif77 --enable-mpi --enable-shared --disable-vtk-binary --prefix=$P4EST_DIR && \
-    make -j10 install && \
+    make -j3 install && \
     rm -r $P4EST_SRC
 ENV DEAL_II_DIR=/opt/dealii
 RUN DEAL_II_SRC=/opt/dealii-src && \
@@ -29,6 +29,6 @@ RUN DEAL_II_SRC=/opt/dealii-src && \
       -D DEAL_II_WITH_LAPACK=ON \
       -D DEAL_II_WITH_MUPARSER=ON \
       .. && \
-    make -j10 install && \
+    make -j3 install && \
     cd ../../ && \
     rm -rf $DEAL_II_SRC
