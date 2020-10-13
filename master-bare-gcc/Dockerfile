@@ -6,11 +6,12 @@ RUN apt-get update -q && apt-get install -y -q \
       ninja-build
 ENV DEAL_II_DIR=/opt/dealii
 ARG DEAL_II_BUILD_TYPE=DebugRelease
+ARG DEAL_II_EXAMPLES=OFF
 RUN DEAL_II_SRC=/opt/dealii-src && \
     git clone https://github.com/dealii/dealii.git $DEAL_II_SRC -b master --depth 1 -q && \
     mkdir $DEAL_II_SRC/build && cd $DEAL_II_SRC/build && \
     cmake -GNinja \
-      -D DEAL_II_COMPONENT_EXAMPLES=ON \
+      -D DEAL_II_COMPONENT_EXAMPLES=$DEAL_II_EXAMPLES \
       -D CMAKE_BUILD_TYPE=$DEAL_II_BUILD_TYPE \
       -D CMAKE_CXX_STANDARD=20 \
       -D CMAKE_CXX_EXTENSIONS=OFF \

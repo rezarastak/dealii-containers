@@ -14,11 +14,13 @@ RUN mkdir $P4EST_DIR && \
     rm -r $P4EST_SRC
 ENV DEAL_II_DIR=/opt/dealii
 ARG DEAL_II_BUILD_TYPE=Debug
+ARG DEAL_II_EXAMPLES=OFF
 RUN DEAL_II_SRC=/opt/dealii-src && \
     git clone https://github.com/dealii/dealii.git $DEAL_II_SRC -b master --depth 1 -q && \
     mkdir $DEAL_II_SRC/build && cd $DEAL_II_SRC/build && \
     cmake \
       -D CMAKE_BUILD_TYPE=$DEAL_II_BUILD_TYPE \
+      -D DEAL_II_COMPONENT_EXAMPLES=$DEAL_II_EXAMPLES \
       -D CMAKE_CXX_STANDARD=20 \
       -D CMAKE_CXX_EXTENSIONS=OFF \
       -D CMAKE_INSTALL_PREFIX=$DEAL_II_DIR \
