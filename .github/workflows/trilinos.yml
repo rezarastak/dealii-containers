@@ -18,6 +18,7 @@ jobs:
         matrix:
             method:
                 - gcc
+                - clang
 
     steps:
       - uses: actions/checkout@v2
