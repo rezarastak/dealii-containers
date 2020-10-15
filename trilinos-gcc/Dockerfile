@@ -24,6 +24,7 @@ RUN TRILINOS_TAR_NAME=$(basename $TRILINOS_PACKAGE_LINK) && \
       -D Trilinos_ENABLE_Ifpack=ON \
       -D Trilinos_ENABLE_ML=ON \
       -D Trilinos_ENABLE_Teuchos=ON \
+      -D Trilinos_ENABLE_ALL_OPTIONAL_PACKAGES=OFF \
       -D BUILD_SHARED_LIBS=ON \
       -D CMAKE_CXX_STANDARD=20 \
       -D CMAKE_CXX_EXTENSIONS=OFF \
