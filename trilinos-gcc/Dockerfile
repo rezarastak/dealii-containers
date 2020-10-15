@@ -19,6 +19,7 @@ RUN TRILINOS_TAR_NAME=$(basename $TRILINOS_PACKAGE_LINK) && \
     cmake \
       -D TPL_ENABLE_MPI=ON \
       -D MPI_BASE_DIR=$MPI_DIR \
+      -D Trilinos_ENABLE_Amesos=ON \
       -D Trilinos_ENABLE_AztecOO=ON \
       -D Trilinos_ENABLE_Epetra=ON \
       -D Trilinos_ENABLE_Ifpack=ON \
