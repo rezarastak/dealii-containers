@@ -22,6 +22,7 @@ jobs:
               - master-bare-clang
               - for-dealfem
               - for-dealfem-latest-gcc
+              - for-dealfem-latest-clang
 
     steps:
       - uses: actions/checkout@v2
