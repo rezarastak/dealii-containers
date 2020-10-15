@@ -2,8 +2,8 @@ FROM teeks99/clang-ubuntu:12
 LABEL maintainer="reza.rastak@gmail.com"
 RUN apt-get update -q && apt-get install -y -q \
     wget
-ARG MPI_PACKAGE_LINK
-ARG MPI_VERSION
+ARG MPI_PACKAGE_LINK=https://download.open-mpi.org/release/open-mpi/v4.0/openmpi-4.0.5.tar.gz
+ARG MPI_VERSION=4.0.5
 ENV MPI_DIR=/opt/openmpi
 RUN MPI_TAR_FILE=$MPI_DIR/openmpi-$MPI_VERSION.tar.gz && \
     MPI_SRC=$MPI_DIR/openmpi-$MPI_VERSION && \
