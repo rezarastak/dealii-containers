@@ -9,7 +9,7 @@ RUN mkdir $P4EST_DIR && \
     tar xzvf $P4EST_TAR_PATH -C $P4EST_DIR && \
     P4EST_SRC=$P4EST_DIR/${P4EST_TAR_FILE_NAME%.tar.gz} && \
     cd $P4EST_SRC && \
-    ./configure F77=mpif77 --enable-mpi --enable-shared --disable-vtk-binary --prefix=$P4EST_DIR && \
+    ./configure --enable-mpi --enable-shared --disable-vtk-binary --prefix=$P4EST_DIR && \
     make -j3 install && \
     rm -r $P4EST_SRC
 ENV DEAL_II_DIR=/opt/dealii
