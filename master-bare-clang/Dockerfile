@@ -7,8 +7,6 @@ RUN apt-get update -q && apt-get install -y -q \
 ENV DEAL_II_DIR=/opt/dealii CC=clang-12 CXX=clang++-12
 ARG DEAL_II_BUILD_TYPE=DebugRelease
 ARG DEAL_II_EXAMPLES=OFF
-# There is a compiler bug (in compilig the bundled boost) in clang 12 with libc++ and c++20.
-# Therefore, we use c++17 here
 RUN DEAL_II_SRC=/opt/dealii-src && \
     git clone https://github.com/dealii/dealii.git $DEAL_II_SRC -b master --depth 1 -q && \
     mkdir $DEAL_II_SRC/build && cd $DEAL_II_SRC/build && \
@@ -17,7 +15,7 @@ RUN DEAL_II_SRC=/opt/dealii-src && \
       -D CMAKE_BUILD_TYPE=$DEAL_II_BUILD_TYPE \
       -D DEAL_II_CXX_FLAGS='-stdlib=libc++' \
       -D DEAL_II_LINKER_FLAGS='-stdlib=libc++' \
-      -D CMAKE_CXX_STANDARD=17 \
+      -D CMAKE_CXX_STANDARD=20 \
       -D CMAKE_CXX_EXTENSIONS=OFF \
       -D CMAKE_INSTALL_PREFIX=$DEAL_II_DIR \
       -D DEAL_II_ALLOW_AUTODETECTION=OFF \
