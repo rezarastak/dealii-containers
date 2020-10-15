@@ -21,7 +21,6 @@ jobs:
               - master-bare-gcc
               - master-bare-clang
               - for-dealfem
-              - for-dealfem-candi
               - for-dealfem-latest-gcc
 
     steps:
