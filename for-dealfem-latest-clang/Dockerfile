@@ -2,7 +2,8 @@ FROM rrastak/trilinos:13.0.0-clang
 LABEL maintainer="reza.rastak@gmail.com"
 RUN apt-get update -q && apt-get install -y -q \
     gfortran \
-    git
+    git \
+    zlib1g-dev
 ENV P4EST_DIR=/opt/p4est
 ARG P4EST_PACKAGE_LINK=https://p4est.github.io/release/p4est-2.2.tar.gz
 RUN mkdir $P4EST_DIR && \
