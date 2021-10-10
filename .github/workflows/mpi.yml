@@ -33,9 +33,8 @@ jobs:
               --build-arg MPI_PACKAGE_LINK=${{ env.link }}
 
 
-      - name: Log into registry
-        if: github.ref == 'refs/heads/master' && success()
-        run: echo "${{ secrets.docker_pass }}" | docker login -u rrastak --password-stdin
-
       - name: Push image
-        run: docker push "rrastak/mpi:${{ env.package }}-${{ env.version }}-${{ matrix.method }}"
+        if: github.ref == 'refs/heads/master' && success()
+        run: |
+          echo "${{ secrets.docker_pass }}" | docker login -u rrastak --password-stdin
+          docker push "rrastak/mpi:${{ env.package }}-${{ env.version }}-${{ matrix.method }}"
