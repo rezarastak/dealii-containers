@@ -2,8 +2,9 @@ name: Trilinos
 
 on:
   push:
-    branches:
-      - master
+    paths:
+      trilinos-*/**
+      .github/workflows/trilinos*
 
 jobs:
 
@@ -29,10 +30,8 @@ jobs:
               --tag "rrastak/trilinos:${{ env.version }}-${{ matrix.method }}" \
               --build-arg TRILINOS_PACKAGE_LINK=${{ env.link }}
 
-
-      - name: Log into registry
-        if: success()
-        run: echo "${{ secrets.docker_pass }}" | docker login -u rrastak --password-stdin
-
       - name: Push image
-        run: docker push "rrastak/trilinos:${{ env.version }}-${{ matrix.method }}"
+        if: github.ref == 'refs/heads/master' && success()
+        run: |
+          echo "${{ secrets.docker_pass }}" | docker login -u rrastak --password-stdin
+          docker push "rrastak/trilinos:${{ env.version }}-${{ matrix.method }}"

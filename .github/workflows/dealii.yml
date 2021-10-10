@@ -2,9 +2,11 @@ name: Dealii
 
 on:
   push:
-    # Publish `master` as Docker `latest` image.
-    branches:
-      - master
+    paths-ignore:
+      - 'mpi-*/**'
+      - 'trilinos-*/**'
+      - '.github/workflows/mpi*'
+      - '.github/workflows/trilinos*'
   schedule:
     - cron: '5 2 * * 0'
 
@@ -30,9 +32,8 @@ jobs:
       - name: Build image
         run: docker build ${{ matrix.directory }} --tag "rrastak/dealii:${{ matrix.directory }}"
 
-      - name: Log into registry
-        if: success()
-        run: echo "${{ secrets.docker_pass }}" | docker login -u rrastak --password-stdin
-
       - name: Push image
-        run: docker push "rrastak/dealii:${{ matrix.directory }}"
+        if: github.ref == 'refs/heads/master' && success()
+        run: |
+          echo "${{ secrets.docker_pass }}" | docker login -u rrastak --password-stdin
+          docker push "rrastak/dealii:${{ matrix.directory }}"
