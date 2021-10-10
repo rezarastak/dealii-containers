@@ -1,6 +1,9 @@
 name: MPI
 
-on: push
+on:
+  push:
+    paths:
+      - 'mpi-*/*'
 
 jobs:
 
