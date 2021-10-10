@@ -5,7 +5,7 @@ RUN apt-get update -q && apt-get install -y -q \
       cmake \
       libblas-dev \
       liblapack-dev
-ARG TRILINOS_PACKAGE_LINK
+ARG TRILINOS_PACKAGE_LINK=https://github.com/trilinos/Trilinos/archive/trilinos-release-13-0-0.tar.gz
 ARG TRILINOS_DIR=/opt/trilinos
 RUN TRILINOS_TAR_NAME=$(basename $TRILINOS_PACKAGE_LINK) && \
     TRILINOS_TAR_PATH=$TRILINOS_DIR/TRILINOS_TAR_NAME && \
