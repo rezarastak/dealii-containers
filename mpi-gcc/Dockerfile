@@ -7,7 +7,7 @@ ENV MPI_DIR=/opt/openmpi
 RUN MPI_TAR_FILE=$MPI_DIR/openmpi-$MPI_VERSION.tar.gz && \
     MPI_SRC=$MPI_DIR/openmpi-$MPI_VERSION && \
     mkdir $MPI_DIR && \
-    wget $MPI_PACKAGE_LINK -O $MPI_TAR_FILE && \
+    wget --no-verbose --output-document $MPI_TAR_FILE $MPI_PACKAGE_LINK && \
     tar xzvf $MPI_TAR_FILE -C $MPI_DIR && \
     cd $MPI_SRC && \
     ./configure --prefix=$MPI_DIR && \
