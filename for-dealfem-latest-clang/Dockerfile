@@ -10,7 +10,7 @@ ARG P4EST_PACKAGE_LINK=https://p4est.github.io/release/p4est-2.2.tar.gz
 RUN mkdir $P4EST_DIR && \
     P4EST_TAR_FILE_NAME=$(basename $P4EST_PACKAGE_LINK) && \
     P4EST_TAR_PATH=$P4EST_DIR/$P4EST_TAR_FILE_NAME && \
-    wget $P4EST_PACKAGE_LINK -O $P4EST_TAR_PATH && \
+    wget --no-verbose --output-document $P4EST_TAR_PATH $P4EST_PACKAGE_LINK && \
     tar xzvf $P4EST_TAR_PATH -C $P4EST_DIR && \
     P4EST_SRC=$P4EST_DIR/${P4EST_TAR_FILE_NAME%.tar.gz} && \
     cd $P4EST_SRC && \
