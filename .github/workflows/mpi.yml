@@ -3,7 +3,8 @@ name: MPI
 on:
   push:
     paths:
-      - 'mpi-*/*'
+      - 'mpi-*/Dockerfile'
+      - '.github/workflows/mpi*.yml'
 
 jobs:
 
