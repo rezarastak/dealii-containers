@@ -3,8 +3,8 @@ name: Trilinos
 on:
   push:
     paths:
-      trilinos-*/**
-      .github/workflows/trilinos*
+      - 'trilinos-*/**'
+      - '.github/workflows/trilinos*'
 
 jobs:
 
