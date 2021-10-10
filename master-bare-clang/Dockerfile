@@ -3,7 +3,8 @@ LABEL maintainer="reza.rastak@gmail.com"
 RUN apt-get update -q && apt-get install -y -q \
       git \
       cmake \
-      ninja-build
+      ninja-build \
+      libunwind8
 ENV DEAL_II_DIR=/opt/dealii CC=clang-12 CXX=clang++-12
 ARG DEAL_II_BUILD_TYPE=DebugRelease
 ARG DEAL_II_EXAMPLES=OFF
