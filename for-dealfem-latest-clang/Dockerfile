@@ -1,5 +1,5 @@
 ARG CLANG_TRILINOS_DOCKER_IMAGE=rrastak/trilinos:13.0.0-clang
-FROM CLANG_TRILINOS_DOCKER_IMAGE
+FROM $CLANG_TRILINOS_DOCKER_IMAGE
 LABEL maintainer="reza.rastak@gmail.com"
 RUN apt-get update -q && apt-get install -y -q \
     gfortran \
