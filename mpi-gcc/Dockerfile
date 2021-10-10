@@ -1,4 +1,4 @@
-ARG GCC_DOCKER_IMAGE=gcc:latest
+ARG GCC_DOCKER_IMAGE=gcc:10.2
 FROM $GCC_DOCKER_IMAGE
 LABEL maintainer="reza.rastak@gmail.com"
 ARG MPI_PACKAGE_LINK=https://download.open-mpi.org/release/open-mpi/v4.0/openmpi-4.0.5.tar.gz
