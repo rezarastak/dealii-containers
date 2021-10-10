@@ -33,7 +33,7 @@ jobs:
 
 
       - name: Log into registry
-        if: success()
+        if: github.ref == 'refs/heads/master' && success()
         run: echo "${{ secrets.docker_pass }}" | docker login -u rrastak --password-stdin
 
       - name: Push image
