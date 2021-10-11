@@ -44,4 +44,4 @@ jobs:
         if: github.ref == 'refs/heads/master' && success()
         run: |
           echo "${{ secrets.docker_pass }}" | docker login -u rrastak --password-stdin
-          docker push --all-tags
+          docker push --all-tags rrastak/trilinos
