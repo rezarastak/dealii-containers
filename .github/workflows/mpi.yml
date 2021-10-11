@@ -20,11 +20,11 @@ jobs:
         matrix:
           include:
             - compiler: gcc
-              compiler_version: 10.2
-              compiler_image: gcc:10.2
+              compiler_version: "10.2"
+              compiler_image: "gcc:${{ matrix.compiler_version }}"
             - compiler: clang
-              compiler_version: 12.0
-              compiler_image: teeks99/clang-ubuntu:12
+              compiler_version: "12"
+              compiler_image: "teeks99/clang-ubuntu:${{ matrix.compiler_version }}
 
     steps:
       - uses: actions/checkout@v2
@@ -44,6 +44,4 @@ jobs:
         if: github.ref == 'refs/heads/master' && success()
         run: |
           echo "${{ secrets.docker_pass }}" | docker login -u rrastak --password-stdin
-          docker push "rrastak/mpi:${{ env.package }}.${{ env.version }}-${{ matrix.compiler }}.${{ matrix.compiler_version }}"
-          docker push "rrastak/mpi:${{ env.package }}.${{ env.version }}-${{ matrix.compiler }}"
-          docker push "rrastak/mpi:${{ env.package }}-${{ matrix.compiler }}"
+          docker push --all-tags rrastak/mpi
