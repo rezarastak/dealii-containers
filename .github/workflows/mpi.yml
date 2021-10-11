@@ -21,10 +21,10 @@ jobs:
           include:
             - compiler: gcc
               compiler_version: "10.2"
-              compiler_image: "gcc:${{ matrix.compiler_version }}"
+              compiler_image_prefix: "gcc:"
             - compiler: clang
               compiler_version: "12"
-              compiler_image: "teeks99/clang-ubuntu:${{ matrix.compiler_version }}
+              compiler_image_prefix: "teeks99/clang-ubuntu:"
 
     steps:
       - uses: actions/checkout@v2
@@ -37,7 +37,7 @@ jobs:
               --tag "rrastak/mpi:${{ env.package }}-${{ matrix.compiler }}" \
               --build-arg MPI_VERSION=${{ env.version }} \
               --build-arg MPI_PACKAGE_LINK=${{ env.link }} \
-              --build-arg BASE_IMAGE=${{ matrix.compiler_image }}
+              --build-arg "BASE_IMAGE=${{ matrix.compiler_image_prefix }}${{ matrix.compiler_version }}
 
 
       - name: Push image
