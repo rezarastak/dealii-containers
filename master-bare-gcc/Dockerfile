@@ -1,5 +1,5 @@
-ARG GCC_DOCKER_IMAGE=gcc:latest
-FROM $GCC_DOCKER_IMAGE
+ARG BASE_IMAGE=gcc:latest
+FROM $BASE_IMAGE
 LABEL maintainer="reza.rastak@gmail.com"
 RUN apt-get update -q && apt-get install -y -q \
       git \

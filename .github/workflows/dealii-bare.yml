@@ -1,0 +1,39 @@
+name: Dealii
+
+on:
+  push:
+    paths:
+      - 'master-bare*/**'
+      - '.github/workflows/dealii-bare*'
+  schedule:
+    - cron: '5 2 * * 0'
+
+jobs:
+
+  dealii-build:
+
+    runs-on: ubuntu-latest
+    strategy:
+        matrix:
+          include:
+            - compiler: gcc
+              compiler_version: "11.2"
+              base_image_prefix: "gcc:"
+            - compiler: clang
+              compiler_version: "12"
+              base_image_prefix: "teeks99/clang-ubuntu:"
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Build image
+        run: docker build master-bare-${{ matrix.compiler }} \
+          --tag "rrastak/dealii:bare-${{ matrix.compiler }}.${{ matrix.compiler_version }}" \
+          --tag "rrastak/dealii:bare-${{ matrix.compiler }}" \
+          --build-arg "BASE_IMAGE=${{ matrix.base_image_prefix }}${{ matrix.compiler_version }}"
+
+      - name: Push image
+        if: github.ref == 'refs/heads/master' && success()
+        run: |
+          echo "${{ secrets.docker_pass }}" | docker login -u rrastak --password-stdin
+          docker push --all-tags "rrastak/dealii"
