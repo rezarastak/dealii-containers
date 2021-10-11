@@ -17,21 +17,31 @@ jobs:
 
     strategy:
         matrix:
-            method:
-                - gcc
-                - clang
+        include:
+          - compiler: gcc
+            compiler_version: "10.2"
+            mpi: openmpi
+            mpi_version: "4.0.5"
+          - compiler: clang
+            compiler_version: "12"
+            mpi: openmpi
+            mpi_version: "4.0.5"
 
     steps:
       - uses: actions/checkout@v2
 
       - name: Build image
         run: |
-            docker build trilinos-${{ matrix.method }} \
-              --tag "rrastak/trilinos:${{ env.version }}-${{ matrix.method }}" \
-              --build-arg TRILINOS_PACKAGE_LINK=${{ env.link }}
+            docker build trilinos-${{ matrix.compiler }} \
+              --tag "rrastak/trilinos:${{ env.version }}-${{ matrix.mpi }}.${{ matrix.mpi_version }}-${{ matrix.compiler }}.${{ matrix.compiler_version }}" \
+              --tag "rrastak/trilinos:${{ env.version }}-${{ matrix.mpi }}.${{ matrix.mpi_version }}-${{ matrix.compiler }}" \
+              --tag "rrastak/trilinos:${{ env.version }}-${{ matrix.mpi }}-${{ matrix.compiler }}.${{ matrix.compiler_version }}" \
+              --tag "rrastak/trilinos:${{ env.version }}-${{ matrix.mpi }}-${{ matrix.compiler }}" \
+              --build-arg TRILINOS_PACKAGE_LINK=${{ env.link }} \
+              --build-arg BASE_IMAGE=rrastak/mpi:${{ matrix.mpi }}.${{ matrix.mpi_version }}-${{ matrix.compiler }}
 
       - name: Push image
         if: github.ref == 'refs/heads/master' && success()
         run: |
           echo "${{ secrets.docker_pass }}" | docker login -u rrastak --password-stdin
-          docker push "rrastak/trilinos:${{ env.version }}-${{ matrix.method }}"
+          docker push --all-tags

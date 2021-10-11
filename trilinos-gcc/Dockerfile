@@ -1,5 +1,5 @@
-ARG GCC_MPI_DOCKER_IMAGE=rrastak/mpi:openmpi-4.0.5-gcc
-FROM $GCC_MPI_DOCKER_IMAGE
+ARG BASE_IMAGE=rrastak/mpi:openmpi-4.0.5-gcc
+FROM $BASE_IMAGE
 LABEL maintainer="reza.rastak@gmail.com"
 RUN apt-get update -q && apt-get install -y -q \
       cmake \
