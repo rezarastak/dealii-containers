@@ -17,15 +17,15 @@ jobs:
 
     strategy:
         matrix:
-        include:
-          - compiler: gcc
-            compiler_version: "10.2"
-            mpi: openmpi
-            mpi_version: "4.0.5"
-          - compiler: clang
-            compiler_version: "12"
-            mpi: openmpi
-            mpi_version: "4.0.5"
+          include:
+            - compiler: gcc
+              compiler_version: "10.2"
+              mpi: openmpi
+              mpi_version: "4.0.5"
+            - compiler: clang
+              compiler_version: "12"
+              mpi: openmpi
+              mpi_version: "4.0.5"
 
     steps:
       - uses: actions/checkout@v2
