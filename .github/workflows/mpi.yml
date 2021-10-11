@@ -18,23 +18,32 @@ jobs:
 
     strategy:
         matrix:
-            method:
-                - gcc
-                - clang
+          include:
+            - compiler: gcc
+              compiler_version: 10.2
+              compiler_image: gcc:10.2
+            - compiler: clang
+              compiler_version: 12.0
+              compiler_image: teeks99/clang-ubuntu:12
 
     steps:
       - uses: actions/checkout@v2
 
       - name: Build image
         run: |
-            docker build mpi-${{ matrix.method }} \
-              --tag "rrastak/mpi:${{ env.package }}-${{ env.version }}-${{ matrix.method }}" \
+            docker build mpi-${{ matrix.compiler }} \
+              --tag "rrastak/mpi:${{ env.package }}.${{ env.version }}-${{ matrix.compiler }}.${{ matrix.compiler_version }}" \
+              --tag "rrastak/mpi:${{ env.package }}.${{ env.version }}-${{ matrix.compiler }}" \
+              --tag "rrastak/mpi:${{ env.package }}-${{ matrix.compiler }}" \
               --build-arg MPI_VERSION=${{ env.version }} \
-              --build-arg MPI_PACKAGE_LINK=${{ env.link }}
+              --build-arg MPI_PACKAGE_LINK=${{ env.link }} \
+              --build-arg BASE_IMAGE=${{ matrix.compiler_image }}
 
 
       - name: Push image
         if: github.ref == 'refs/heads/master' && success()
         run: |
           echo "${{ secrets.docker_pass }}" | docker login -u rrastak --password-stdin
-          docker push "rrastak/mpi:${{ env.package }}-${{ env.version }}-${{ matrix.method }}"
+          docker push "rrastak/mpi:${{ env.package }}.${{ env.version }}-${{ matrix.compiler }}.${{ matrix.compiler_version }}"
+          docker push "rrastak/mpi:${{ env.package }}.${{ env.version }}-${{ matrix.compiler }}"
+          docker push "rrastak/mpi:${{ env.package }}-${{ matrix.compiler }}"

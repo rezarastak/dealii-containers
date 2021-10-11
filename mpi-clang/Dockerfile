@@ -1,5 +1,5 @@
-ARG CLANG_DOCKER_IMAGE=teeks99/clang-ubuntu:12
-FROM $CLANG_DOCKER_IMAGE
+ARG BASE_IMAGE=teeks99/clang-ubuntu:12
+FROM $BASE_IMAGE
 LABEL maintainer="reza.rastak@gmail.com"
 RUN apt-get update -q && apt-get install -y -q \
     wget
