@@ -1,4 +1,4 @@
-name: Dealii
+name: Dealii-bare
 
 on:
   push:
