@@ -37,7 +37,7 @@ jobs:
               --tag "rrastak/mpi:${{ env.package }}-${{ matrix.compiler }}" \
               --build-arg MPI_VERSION=${{ env.version }} \
               --build-arg MPI_PACKAGE_LINK=${{ env.link }} \
-              --build-arg "BASE_IMAGE=${{ matrix.compiler_image_prefix }}${{ matrix.compiler_version }}
+              --build-arg "BASE_IMAGE=${{ matrix.compiler_image_prefix }}${{ matrix.compiler_version }}"
 
 
       - name: Push image
