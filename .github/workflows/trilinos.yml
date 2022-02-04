@@ -33,9 +33,9 @@ jobs:
       - name: Build image
         run: |
             docker build trilinos-${{ matrix.compiler }} \
-              --tag "rrastak/trilinos:${{ env.version }}-${{ matrix.mpi }}.${{ matrix.mpi_version }}-${{ matrix.compiler }}.${{ matrix.compiler_version }}" \
-              --tag "rrastak/trilinos:${{ env.version }}-${{ matrix.mpi }}.${{ matrix.mpi_version }}-${{ matrix.compiler }}" \
-              --tag "rrastak/trilinos:${{ env.version }}-${{ matrix.mpi }}-${{ matrix.compiler }}.${{ matrix.compiler_version }}" \
+              --tag "rrastak/trilinos:${{ env.version }}-${{ matrix.mpi }}${{ matrix.mpi_version }}-${{ matrix.compiler }}${{ matrix.compiler_version }}" \
+              --tag "rrastak/trilinos:${{ env.version }}-${{ matrix.mpi }}${{ matrix.mpi_version }}-${{ matrix.compiler }}" \
+              --tag "rrastak/trilinos:${{ env.version }}-${{ matrix.mpi }}-${{ matrix.compiler }}${{ matrix.compiler_version }}" \
               --tag "rrastak/trilinos:${{ env.version }}-${{ matrix.mpi }}-${{ matrix.compiler }}" \
               --build-arg TRILINOS_PACKAGE_LINK=${{ env.link }} \
               --build-arg BASE_IMAGE=rrastak/mpi:${{ matrix.mpi }}.${{ matrix.mpi_version }}-${{ matrix.compiler }}
