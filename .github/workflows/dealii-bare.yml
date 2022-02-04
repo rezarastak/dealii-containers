@@ -13,6 +13,9 @@ jobs:
   dealii-build:
 
     runs-on: ubuntu-latest
+    env:
+        username: ${{ secrets.docker_username }}
+        password: ${{ secrets.docker_hub_access_token }}
     strategy:
         matrix:
           include:
@@ -29,12 +32,12 @@ jobs:
       - name: Build image
         run: |
           docker build master-bare-${{ matrix.compiler }} \
-          --tag "rrastak/dealii:bare-${{ matrix.compiler }}.${{ matrix.compiler_version }}" \
-          --tag "rrastak/dealii:bare-${{ matrix.compiler }}" \
+          --tag "${{ env.username }}/dealii:bare-${{ matrix.compiler }}${{ matrix.compiler_version }}" \
+          --tag "${{ env.username }}/dealii:bare-${{ matrix.compiler }}" \
           --build-arg "BASE_IMAGE=${{ matrix.base_image_prefix }}${{ matrix.compiler_version }}"
 
       - name: Push image
         if: github.ref == 'refs/heads/master' && success()
         run: |
-          echo "${{ secrets.docker_pass }}" | docker login -u rrastak --password-stdin
-          docker push --all-tags "rrastak/dealii"
+          docker login -u ${{ env.username }} -p ${{ env.password }}
+          docker push --all-tags "${{ env.username }}/dealii"

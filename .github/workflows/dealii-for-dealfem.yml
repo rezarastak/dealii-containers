@@ -13,6 +13,9 @@ jobs:
   dealii-build:
 
     runs-on: ubuntu-latest
+    env:
+        username: ${{ secrets.docker_username }}
+        password: ${{ secrets.docker_hub_access_token }}
     strategy:
         matrix:
             directory:
@@ -26,10 +29,10 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Build image
-        run: docker build ${{ matrix.directory }} --tag "rrastak/dealii:${{ matrix.directory }}"
+        run: docker build ${{ matrix.directory }} --tag "${{ env.username }}/dealii:${{ matrix.directory }}"
 
       - name: Push image
         if: github.ref == 'refs/heads/master' && success()
         run: |
-          echo "${{ secrets.docker_pass }}" | docker login -u rrastak --password-stdin
-          docker push "rrastak/dealii:${{ matrix.directory }}"
+          docker login -u ${{ env.username }} -p ${{ env.password }}
+          docker push "${{ env.username }}/dealii:${{ matrix.directory }}"
