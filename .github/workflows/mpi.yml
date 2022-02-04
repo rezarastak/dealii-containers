@@ -32,9 +32,9 @@ jobs:
       - name: Build image
         run: |
             docker build mpi-${{ matrix.compiler }} \
-              --tag "rrastak/mpi:${{ env.package }}.${{ env.version }}-${{ matrix.compiler }}.${{ matrix.compiler_version }}" \
-              --tag "rrastak/mpi:${{ env.package }}.${{ env.version }}-${{ matrix.compiler }}" \
-              --tag "rrastak/mpi:${{ env.package }}-${{ matrix.compiler }}" \
+              --tag "rrastak/${{ env.package }}:${{ env.version }}-${{ matrix.compiler }}${{ matrix.compiler_version }}" \
+              --tag "rrastak/${{ env.package }}:${{ env.version }}-${{ matrix.compiler }}" \
+              --tag "rrastak/${{ env.package }}:${{ matrix.compiler }}" \
               --build-arg MPI_VERSION=${{ env.version }} \
               --build-arg MPI_PACKAGE_LINK=${{ env.link }} \
               --build-arg "BASE_IMAGE=${{ matrix.compiler_image_prefix }}${{ matrix.compiler_version }}"
