@@ -12,8 +12,7 @@ jobs:
 
     runs-on: ubuntu-latest
     env:
-        username: ${{ secrets.docker_username }}
-        password: ${{ secrets.docker_hub_access_token }}
+        username: ${{ secrets.DOCKER_USERNAME }}
         package: openmpi
         link: https://download.open-mpi.org/release/open-mpi/v4.1/openmpi-4.1.0.tar.gz
         version: 4.1.0
@@ -31,6 +30,12 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: Docker Login
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+
       - name: Build image
         run: |
             docker build mpi-${{ matrix.compiler }} \
@@ -44,6 +49,4 @@ jobs:
 
       - name: Push image
         if: github.ref == 'refs/heads/master' && success()
-        run: |
-          docker login -u ${{ env.username }} -p ${{ env.password }}
-          docker push --all-tags ${{ env.username }}/${{ env.package }}
+        run: docker push --all-tags ${{ env.username }}/${{ env.package }}
