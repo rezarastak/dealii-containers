@@ -12,7 +12,7 @@ jobs:
 
     runs-on: ubuntu-latest
     env:
-        username: ${{ secrets.DOCKER_USERNAME }}
+        username: ${{ secrets.DOCKER_HUB_USERNAME }}
         link: https://github.com/trilinos/Trilinos/archive/trilinos-release-13-0-1.tar.gz
         version: 13.0.1
 
@@ -34,7 +34,7 @@ jobs:
       - name: Docker Login
         uses: docker/login-action@v1
         with:
-          username: ${{ secrets.DOCKER_USERNAME }}
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
 
       - name: Build image
