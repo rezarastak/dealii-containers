@@ -38,7 +38,7 @@ jobs:
 
       - name: Build image
         run: |
-          docker build master-bare-${{ matrix.compiler }} \
+          docker build ${{ matrix.compiler }} \
           --tag "${{ env.username }}/${{ env.package }}:${{ matrix.compiler }}${{ matrix.compiler_version }}" \
           --tag "${{ env.username }}/${{ env.package }}:${{ matrix.compiler }}" \
           --build-arg "BASE_IMAGE=${{ matrix.base_image_prefix }}${{ matrix.compiler_version }}"
