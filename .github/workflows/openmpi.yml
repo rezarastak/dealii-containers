@@ -38,7 +38,7 @@ jobs:
 
       - name: Build image
         run: |
-            docker build mpi-${{ matrix.compiler }} \
+            docker build openmpi-${{ matrix.compiler }} \
               --tag "${{ env.username }}/${{ env.package }}:${{ env.version }}-${{ matrix.compiler }}${{ matrix.compiler_version }}" \
               --tag "${{ env.username }}/${{ env.package }}:${{ env.version }}-${{ matrix.compiler }}" \
               --tag "${{ env.username }}/${{ env.package }}:${{ matrix.compiler }}" \
