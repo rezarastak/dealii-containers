@@ -1,10 +1,10 @@
-name: MPI
+name: openMPI
 
 on:
   push:
     paths:
-      - 'mpi-*/Dockerfile'
-      - '.github/workflows/mpi*.yml'
+      - 'openmpi-*/Dockerfile'
+      - '.github/workflows/openmpi.yml'
 
 jobs:
 

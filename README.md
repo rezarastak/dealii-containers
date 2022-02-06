@@ -2,7 +2,7 @@
 
 [![](https://img.shields.io/docker/pulls/rrastak/dealii?style=plastic "Docker hub")](https://hub.docker.com/r/rrastak/dealii)
 [![Dealii](https://github.com/rezarastak/dealii-containers/workflows/Dealii/badge.svg)](https://github.com/rezarastak/dealii-containers/actions?query=workflow%3ADealii)
-[![MPI](https://github.com/rezarastak/dealii-containers/workflows/MPI/badge.svg)](https://github.com/rezarastak/dealii-containers/actions?query=workflow%3AMPI)
+[![openMPI](https://github.com/rezarastak/dealii-containers/workflows/MPI/badge.svg)](https://github.com/rezarastak/dealii-containers/actions?query=workflow%3AopenMPI)
 [![Trilinos](https://github.com/rezarastak/dealii-containers/workflows/Trilinos/badge.svg)](https://github.com/rezarastak/dealii-containers/actions?query=workflow%3ATrilinos)
 
 Creates docker containers images to use the dealii library.
