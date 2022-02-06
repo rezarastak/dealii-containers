@@ -3,8 +3,9 @@ name: Dealii-bare
 on:
   push:
     paths:
-      - 'master-bare*/**'
-      - '.github/workflows/dealii-bare*'
+      - 'gcc/'
+      - 'clang/'
+      - '.github/workflows/dealii.yml'
   schedule:
     - cron: '5 2 * * 0'
 
@@ -15,6 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
         username: ${{ secrets.DOCKER_HUB_USERNAME }}
+        package: dealii
     strategy:
         matrix:
           include:
@@ -37,10 +39,10 @@ jobs:
       - name: Build image
         run: |
           docker build master-bare-${{ matrix.compiler }} \
-          --tag "${{ env.username }}/dealii:bare-${{ matrix.compiler }}${{ matrix.compiler_version }}" \
-          --tag "${{ env.username }}/dealii:bare-${{ matrix.compiler }}" \
+          --tag "${{ env.username }}/${{ env.package }}:${{ matrix.compiler }}${{ matrix.compiler_version }}" \
+          --tag "${{ env.username }}/${{ env.package }}:${{ matrix.compiler }}" \
           --build-arg "BASE_IMAGE=${{ matrix.base_image_prefix }}${{ matrix.compiler_version }}"
 
       - name: Push image
         if: github.ref == 'refs/heads/master' && success()
-        run: docker push --all-tags "${{ env.username }}/dealii"
+        run: docker push --all-tags "${{ env.username }}/${{ env.package }}"

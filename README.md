@@ -13,8 +13,8 @@ Each container created with these images provides the environment variable `DEAL
 Three different images are provided here:
  * **dealii:ubuntu-package**: contains the latest official dealii package `libdeal.ii-dev` for the latest Ubuntu LTS.
  * **dealii:ubuntu-package-18**: contains the latest official dealii package `libdeal.ii-dev` backported for Ubuntu 18.04 LTS.
- * **dealii:bare-gcc**: The latest master branch of `dealii` is compiled from source using `gcc` with no dependency to external libraries.
- * **dealii:bare-clang**: The latest master branch of `dealii` is compiled from source using `clang` with no dependency to external libraries.
+ * **dealii:gcc**: The latest master branch of `dealii` is compiled from source using `gcc` with no dependency to external libraries.
+ * **dealii:clang**: The latest master branch of `dealii` is compiled from source using `clang` with no dependency to external libraries.
  * **trilinos**: This container encapsulates the `Trilinos` library without an installed dealii. It could be used as a base image for compiling dealii.
  * **openmpi**: Encapsulates the openMPI library. It could be used as base image for compiling dealii.
 
@@ -22,8 +22,8 @@ Three different images are provided here:
  |---|---|
  |`rrastak/dealii:ubuntu-package`    | ![](https://img.shields.io/docker/image-size/rrastak/dealii/ubuntu-package)|
  |`rrastak/dealii:ubuntu-package-18`    | ![](https://img.shields.io/docker/image-size/rrastak/dealii/ubuntu-package-18)|
- |`rrastak/dealii:bare-gcc`   | ![](https://img.shields.io/docker/image-size/rrastak/dealii/bare-gcc)|
- |`rrastak/dealii:bare-clang` | ![](https://img.shields.io/docker/image-size/rrastak/dealii/bare-clang)|
+ |`rrastak/dealii:gcc`   | ![](https://img.shields.io/docker/image-size/rrastak/dealii/gcc)|
+ |`rrastak/dealii:clang` | ![](https://img.shields.io/docker/image-size/rrastak/dealii/clang)|
  |`rrastak/trilinos:gcc`   | ![](https://img.shields.io/docker/image-size/rrastak/trilinos/gcc)|
  |`rrastak/trilinos:clang`   | ![](https://img.shields.io/docker/image-size/rrastak/trilinos/clang)|
  |`rrastak/openmpi:gcc`   | ![](https://img.shields.io/docker/image-size/rrastak/openmpi/gcc)|
