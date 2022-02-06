@@ -1,9 +1,10 @@
-name: For-dealfem
+name: Dealii-ubuntu-package
 
 on:
   push:
-    branches:
-      - main
+    paths:
+      - 'ubuntu-package*/'
+      - '.github/workflows/dealii-ubuntu.yml'
   schedule:
     - cron: '5 2 * * 0'
 
