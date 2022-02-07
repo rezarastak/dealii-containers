@@ -30,6 +30,6 @@ RUN TRILINOS_TAR_NAME=$(basename $TRILINOS_PACKAGE_LINK) && \
       -D CMAKE_CXX_STANDARD=20 \
       -D CMAKE_CXX_EXTENSIONS=OFF \
       --install-prefix $TRILINOS_DIR -S $TRILINOS_SRC -B $TRILINOS_BUILD && \
-    cmake --build $TRILINOS_BUILD --parallel 3 && \
+    cmake --build $TRILINOS_BUILD --parallel 3 --verbose && \
     cmake --install $TRILINOS_BUILD && \
     rm -r $TRILINOS_SRC $TRILINOS_TAR_PATH
