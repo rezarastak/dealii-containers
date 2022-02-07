@@ -1,4 +1,4 @@
-ARG BASE_IMAGE=gcc:10.2
+ARG BASE_IMAGE=gcc:11.2
 FROM $BASE_IMAGE
 LABEL maintainer="reza.rastak@gmail.com"
 ARG MPI_PACKAGE_LINK=https://download.open-mpi.org/release/open-mpi/v4.1/openmpi-4.1.1.tar.gz
