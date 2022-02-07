@@ -1,6 +1,6 @@
 # dealii-containers
 
-[[![GitHub](https://img.shields.io/github/license/rezarastak/dealii-containers)]](https://github.com/rezarastak/dealii-containers)
+[![GitHub](https://img.shields.io/github/license/rezarastak/dealii-containers)](https://github.com/rezarastak/dealii-containers)
 [![](https://img.shields.io/docker/pulls/rrastak/dealii?style=plastic "Docker hub")](https://hub.docker.com/r/rrastak/dealii)
 [![Dealii](https://github.com/rezarastak/dealii-containers/actions/workflows/dealii.yml/badge.svg)](https://github.com/rezarastak/dealii-containers/actions/workflows/dealii.yml)
 [![Dealii-ubuntu-package](https://github.com/rezarastak/dealii-containers/actions/workflows/dealii-ubuntu.yml/badge.svg)](https://github.com/rezarastak/dealii-containers/actions/workflows/dealii-ubuntu.yml)
