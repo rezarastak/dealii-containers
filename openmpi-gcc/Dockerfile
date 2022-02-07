@@ -1,8 +1,8 @@
-ARG BASE_IMAGE=gcc:11.2
+ARG BASE_IMAGE=gcc:latest
 FROM $BASE_IMAGE
 LABEL maintainer="reza.rastak@gmail.com"
-ARG MPI_PACKAGE_LINK=https://download.open-mpi.org/release/open-mpi/v4.1/openmpi-4.1.1.tar.gz
-ARG MPI_VERSION=4.1.1
+ARG MPI_PACKAGE_LINK=https://download.open-mpi.org/release/open-mpi/v4.1/openmpi-4.1.2.tar.gz
+ARG MPI_VERSION=4.1.2
 ENV MPI_DIR=/opt/openmpi
 RUN MPI_TAR_FILE=$MPI_DIR/openmpi-$MPI_VERSION.tar.gz && \
     MPI_SRC=$MPI_DIR/openmpi-$MPI_VERSION && \

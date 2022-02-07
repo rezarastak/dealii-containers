@@ -14,8 +14,8 @@ jobs:
     env:
         username: ${{ secrets.DOCKER_HUB_USERNAME }}
         package: openmpi
-        link: https://download.open-mpi.org/release/open-mpi/v4.1/openmpi-4.1.1.tar.gz
-        version: 4.1.1
+        link: https://download.open-mpi.org/release/open-mpi/v4.1/openmpi-4.1.2.tar.gz
+        version: 4.1.2
 
     strategy:
         matrix:
