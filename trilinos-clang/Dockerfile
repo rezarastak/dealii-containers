@@ -14,7 +14,7 @@ RUN TRILINOS_TAR_NAME=$(basename $TRILINOS_PACKAGE_LINK) && \
     wget --no-verbose --output-document $TRILINOS_TAR_PATH $TRILINOS_PACKAGE_LINK && \
     TRILINOS_SRC=$TRILINOS_DIR/Trilinos-${TRILINOS_TAR_NAME%.tar.gz} && \
     echo extracting tar file into $TRILINOS_SRC && \
-    tar xzvf $TRILINOS_TAR_PATH -C $TRILINOS_DIR && \
+    tar xzf $TRILINOS_TAR_PATH -C $TRILINOS_DIR && \
     TRILINOS_BUILD=$TRILINOS_SRC/build && \
     cmake \
       -D Trilinos_ENABLE_Fortran=OFF \
