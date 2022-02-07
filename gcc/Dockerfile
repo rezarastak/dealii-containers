@@ -5,7 +5,7 @@ RUN apt-get update -q && apt-get install -y -q \
       git \
       cmake
 ENV DEAL_II_DIR=/opt/dealii
-ARG DEAL_II_BUILD_TYPE=DebugRelease
+ARG DEAL_II_BUILD_TYPE=Debug
 ARG DEAL_II_EXAMPLES=OFF
 RUN DEAL_II_SRC=/opt/dealii-src && DEAL_II_BIN=$DEAL_II_SRC/build && \
     git clone https://github.com/dealii/dealii.git $DEAL_II_SRC -b master --depth 1 -q && \
