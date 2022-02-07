@@ -16,7 +16,7 @@ RUN TRILINOS_TAR_NAME=$(basename $TRILINOS_PACKAGE_LINK) && \
     echo extracting tar file into $TRILINOS_SRC && \
     tar xzvf $TRILINOS_TAR_PATH -C $TRILINOS_DIR && \
     TRILINOS_BUILD=$TRILINOS_SRC/build && \
-    cmake -S $TRILINOS_SRC -B $TRILINOS_BUILD --install-prefix $TRILINOS_DIR \
+    cmake \
       -D TPL_ENABLE_MPI=ON \
       -D MPI_BASE_DIR=$MPI_DIR \
       -D Trilinos_ENABLE_Amesos=ON \
@@ -29,7 +29,7 @@ RUN TRILINOS_TAR_NAME=$(basename $TRILINOS_PACKAGE_LINK) && \
       -D BUILD_SHARED_LIBS=ON \
       -D CMAKE_CXX_STANDARD=20 \
       -D CMAKE_CXX_EXTENSIONS=OFF \
-      && \
+      --install-prefix $TRILINOS_DIR -S $TRILINOS_SRC -B $TRILINOS_BUILD && \
     cmake --build --parallel --verbose $TRILINOS_BUILD && \
     cmake --install && \
     rm -r $TRILINOS_SRC $TRILINOS_TAR_PATH

@@ -13,7 +13,6 @@ RUN DEAL_II_SRC=/opt/dealii-src && \
     DEAL_II_DIN=$DEAL_II_SRC/build && \
     git clone https://github.com/dealii/dealii.git $DEAL_II_SRC -b master --depth 1 -q && \
     cmake -G Ninja \
-      -S $DEAL_II_SRC -B $DEAL_II_BIN --install-prefix $DEAL_II_DIR \
       -D DEAL_II_COMPONENT_EXAMPLES=$DEAL_II_BUILD_TYPE \
       -D CMAKE_BUILD_TYPE=$DEAL_II_BUILD_TYPE \
       -D DEAL_II_CXX_FLAGS='-stdlib=libc++' \
@@ -23,7 +22,7 @@ RUN DEAL_II_SRC=/opt/dealii-src && \
       -D DEAL_II_ALLOW_AUTODETECTION=OFF \
       -D DEAL_II_WITH_MUPARSER=ON \
       -D DEAL_II_FORCE_BUNDLED_BOOST=ON \
-       && \
+      --install-prefix $DEAL_II_DIR -S $DEAL_II_SRC -B $DEAL_II_BIN && \
     cmake --build --parallel --verbose $DEAL_II_BIN && \
     cmake --install && \
     rm -rf $DEAL_II_SRC

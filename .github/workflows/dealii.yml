@@ -3,8 +3,8 @@ name: Dealii
 on:
   push:
     paths:
-      - 'gcc/'
-      - 'clang/'
+      - 'gcc/*'
+      - 'clang/*'
       - '.github/workflows/dealii.yml'
   schedule:
     - cron: '5 2 * * 0'
