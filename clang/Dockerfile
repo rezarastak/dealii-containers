@@ -9,8 +9,7 @@ RUN apt-get update -q && apt-get install -y -q \
 ENV DEAL_II_DIR=/opt/dealii CC=clang-12 CXX=clang++-12
 ARG DEAL_II_BUILD_TYPE=DebugRelease
 ARG DEAL_II_EXAMPLES=OFF
-RUN DEAL_II_SRC=/opt/dealii-src && \
-    DEAL_II_DIN=$DEAL_II_SRC/build && \
+RUN DEAL_II_SRC=/opt/dealii-src && DEAL_II_BIN=$DEAL_II_SRC/build && \
     git clone https://github.com/dealii/dealii.git $DEAL_II_SRC -b master --depth 1 -q && \
     cmake -G Ninja \
       -D DEAL_II_COMPONENT_EXAMPLES=$DEAL_II_BUILD_TYPE \
