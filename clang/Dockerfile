@@ -1,11 +1,11 @@
-ARG BASE_IMAGE=teeks99/clang-ubuntu:12
+ARG BASE_IMAGE=teeks99/clang-ubuntu:13
 FROM $BASE_IMAGE
 LABEL maintainer="reza.rastak@gmail.com"
 RUN apt-get update -q && apt-get install -y -q \
       git \
       cmake \
       libunwind-dev
-ENV DEAL_II_DIR=/opt/dealii CC=clang-12 CXX=clang++-12
+ENV DEAL_II_DIR=/opt/dealii CC=clang-13 CXX=clang++-13
 ARG DEAL_II_BUILD_TYPE=DebugRelease
 ARG DEAL_II_EXAMPLES=OFF
 RUN DEAL_II_SRC=/opt/dealii-src && DEAL_II_BIN=$DEAL_II_SRC/build && \
