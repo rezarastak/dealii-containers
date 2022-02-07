@@ -6,5 +6,4 @@ RUN apt-get update -q && \
       build-essential \
       software-properties-common \
       ssh \
-      ninja-build \
       libdeal.ii-dev
