@@ -47,7 +47,7 @@ jobs:
               --tag "${{ env.username }}/trilinos:${{ matrix.mpi }}-${{ matrix.compiler }}" \
               --tag "${{ env.username }}/trilinos:${{ matrix.compiler }}" \
               --build-arg TRILINOS_PACKAGE_LINK=${{ env.link }} \
-              --build-arg BASE_IMAGE=${{ env.username }}/mpi:${{ matrix.mpi }}.${{ matrix.mpi_version }}-${{ matrix.compiler }}
+              --build-arg BASE_IMAGE=${{ env.username }}/openmpi:${{ matrix.mpi }}${{ matrix.mpi_version }}-${{ matrix.compiler }}${{ matrix.compiler_version }}
 
       - name: Push image
         if: github.ref == 'refs/heads/master' && success()
