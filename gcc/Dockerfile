@@ -18,6 +18,6 @@ RUN DEAL_II_SRC=/opt/dealii-src && \
       -D CMAKE_CXX_EXTENSIONS=OFF \
       -D DEAL_II_ALLOW_AUTODETECTION=OFF \
       --install-prefix $DEAL_II_DIR -S $DEAL_II_SRC -B $DEAL_II_BIN && \
-    cmake --build --parallel --verbose $DEAL_II_BIN && \
+    cmake --build $DEAL_II_BIN --parallel --verbose && \
     cmake --install $DEAL_II_BIN && \
     rm -rf $DEAL_II_SRC
