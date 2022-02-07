@@ -22,11 +22,11 @@ jobs:
             - compiler: gcc
               compiler_version: "10.2"
               mpi: openmpi
-              mpi_version: "4.0.5"
+              mpi_version: "4.1.0"
             - compiler: clang
               compiler_version: "12"
               mpi: openmpi
-              mpi_version: "4.0.5"
+              mpi_version: "4.1.0"
 
     steps:
       - uses: actions/checkout@v2
