@@ -14,7 +14,7 @@ RUN ( curl -L https://github.com/dealii/dealii/tarball/master | tar xzf - -C /op
       -D DEAL_II_COMPONENT_EXAMPLES=$DEAL_II_BUILD_TYPE \
       -D CMAKE_BUILD_TYPE=$DEAL_II_BUILD_TYPE \
       -D DEAL_II_CXX_FLAGS='-stdlib=libc++' \
-      -D DEAL_II_LINKER_FLAGS='-stdlib=libc++' \
+      -D DEAL_II_LINKER_FLAGS='-stdlib=libc++ -lc++abi' \
       -D CMAKE_CXX_STANDARD=20 \
       -D CMAKE_CXX_EXTENSIONS=OFF \
       -D DEAL_II_ALLOW_AUTODETECTION=OFF \
