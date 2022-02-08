@@ -2,14 +2,14 @@ ARG BASE_IMAGE=teeks99/clang-ubuntu:13
 FROM $BASE_IMAGE
 LABEL maintainer="reza.rastak@gmail.com"
 RUN apt-get update -q && apt-get install -y -q \
-      git \
+      curl \
       cmake \
       libunwind-dev
 ENV DEAL_II_DIR=/opt/dealii CC=clang-13 CXX=clang++-13
 ARG DEAL_II_BUILD_TYPE=Debug
 ARG DEAL_II_EXAMPLES=OFF
-RUN DEAL_II_SRC=/opt/dealii-src && DEAL_II_BIN=$DEAL_II_SRC/build && \
-    git clone https://github.com/dealii/dealii.git $DEAL_II_SRC -b master --depth 1 -q && \
+RUN ( curl -L https://github.com/dealii/dealii/tarball/master | tar xzf - -C /opt/ ) && \
+    DEAL_II_SRC="/opt/dealii-dealii*" && DEAL_II_BIN=/opt/dealii-build && \
     cmake \
       -D DEAL_II_COMPONENT_EXAMPLES=$DEAL_II_BUILD_TYPE \
       -D CMAKE_BUILD_TYPE=$DEAL_II_BUILD_TYPE \
@@ -23,4 +23,4 @@ RUN DEAL_II_SRC=/opt/dealii-src && DEAL_II_BIN=$DEAL_II_SRC/build && \
       --install-prefix $DEAL_II_DIR -S $DEAL_II_SRC -B $DEAL_II_BIN && \
     cmake --build $DEAL_II_BIN --parallel 3 --verbose && \
     cmake --install $DEAL_II_BIN && \
-    rm -rf $DEAL_II_SRC
+    rm -r $DEAL_II_SRC $DEAL_II_BIN
