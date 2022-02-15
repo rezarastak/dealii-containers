@@ -3,8 +3,7 @@ FROM $BASE_IMAGE
 LABEL maintainer="reza.rastak@gmail.com"
 RUN apt-get update -q && apt-get install -y -q \
       curl \
-      cmake \
-      libunwind-dev
+      cmake
 ENV DEAL_II_DIR=/opt/dealii CC=clang-$llvmver CXX=clang++-$llvmver
 ARG DEAL_II_BUILD_TYPE=Debug
 ARG DEAL_II_EXAMPLES=OFF
