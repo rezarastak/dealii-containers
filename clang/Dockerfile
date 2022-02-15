@@ -4,7 +4,7 @@ LABEL maintainer="reza.rastak@gmail.com"
 RUN apt-get update -q && apt-get install -y -q \
       curl \
       cmake
-ENV DEAL_II_DIR=/opt/dealii CC=clang-$llvmver CXX=clang++-$llvmver
+ENV DEAL_II_DIR=/opt/dealii CC=clang-13 CXX=clang++-13
 ARG DEAL_II_BUILD_TYPE=Debug
 ARG DEAL_II_EXAMPLES=OFF
 RUN ( curl -L https://github.com/dealii/dealii/tarball/master | tar xzf - -C /opt/ ) && \
