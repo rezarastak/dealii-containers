@@ -1,9 +1,10 @@
 ARG BASE_IMAGE=gcc:latest
 FROM $BASE_IMAGE
 LABEL maintainer="reza.rastak@gmail.com"
-RUN apt-get update -q && apt-get install -y -q \
-      curl \
-      cmake
+RUN apt-get update -q && apt-get install -y -q curl && \
+    curl -L https://github.com/Kitware/CMake/releases/download/v3.22.2/cmake-3.22.2-linux-x86_64.sh --output cmake-3.22.2-linux-x86_64.sh && \
+    /bin/sh cmake-3.22.2-linux-x86_64.sh --prefix=/usr --skip-license --exclude-subdir && \
+    rm cmake-3.22.2-linux-x86_64.sh
 ENV DEAL_II_DIR=/opt/dealii
 ARG DEAL_II_BUILD_TYPE=Debug
 ARG DEAL_II_EXAMPLES=OFF
