@@ -7,7 +7,7 @@ RUN apt-get update -q && apt-get install -y -q \
     wget --no-verbose https://github.com/Kitware/CMake/releases/download/v3.22.2/cmake-3.22.2-linux-x86_64.sh && \
     /bin/sh cmake-3.22.2-linux-x86_64.sh --prefix=/usr --skip-license --exclude-subdir && \
     rm cmake-3.22.2-linux-x86_64.sh
-ARG TRILINOS_PACKAGE_LINK=https://github.com/trilinos/Trilinos/archive/refs/tags/trilinos-release-13-0-1.tar.gz
+ARG TRILINOS_PACKAGE_LINK=https://github.com/trilinos/Trilinos/archive/refs/tags/trilinos-release-13-2-0.tar.gz
 ARG TRILINOS_DIR=/opt/trilinos
 RUN TRILINOS_TAR_NAME=$(basename $TRILINOS_PACKAGE_LINK) && \
     TRILINOS_TAR_PATH=$TRILINOS_DIR/$TRILINOS_TAR_NAME && \
