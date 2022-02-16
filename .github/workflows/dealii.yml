@@ -21,7 +21,7 @@ jobs:
         matrix:
           include:
             - compiler: gcc
-              compiler_version: "11.2"
+              compiler_version: "11"
               base_image_prefix: "gcc:"
             - compiler: clang
               compiler_version: "14"

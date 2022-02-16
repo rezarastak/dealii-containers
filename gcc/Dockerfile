@@ -1,4 +1,4 @@
-ARG BASE_IMAGE=gcc:latest
+ARG BASE_IMAGE=gcc:11
 FROM $BASE_IMAGE
 LABEL maintainer="reza.rastak@gmail.com"
 RUN apt-get update -q && apt-get install -y -q curl && \
